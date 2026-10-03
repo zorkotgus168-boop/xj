@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <title>天山绿谷·云杉秘境 | 巩留库尔德宁</title>
+  <meta name="description" content="巩留库尔德宁文旅宣传H5：世界自然遗产·新疆天山核心区，雪岭云杉的故乡，哈萨克游牧风情，沉浸式互动导览与生态研学。">
+  <meta name="keywords" content="库尔德宁, 巩留, 伊犁旅游, 雪岭云杉, 新疆天山, 世界自然遗产, 齐梦德观景台, 喀班巴依峰">
+
+  <!-- Open Graph for WeChat / Social Sharing -->
+  <meta property="og:title" content="天山绿谷·云杉秘境 | 巩留库尔德宁">
+  <meta property="og:description" content="雪岭云杉的故乡，罕见天山横沟阔谷。开启属于你的天山秘境之约。">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts for Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Serif+SC:wght@500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <!-- Container wrapper with mobile preview bezel on PC -->
+  <div class="h5-viewport-frame" id="h5ViewportFrame">
+
+    <!-- Global Floating Top Bar -->
+    <header class="h5-topbar">
+      <div class="brand-tag">
+        <span class="emblem-dot"></span>
+        <span class="brand-text">巩留·库尔德宁</span>
+      </div>
+      <div class="topbar-actions">
+        <!-- Language Switcher -->
+        <button class="action-btn lang-toggle-btn" id="langToggleBtn" aria-label="切换语言" title="中英双语切换">
+          <span class="lang-text">EN</span>
+        </button>
+        <!-- Sound / Ambience Controller -->
+        <button class="action-btn audio-toggle-btn" id="audioToggleBtn" aria-label="背景音乐开关" title="风声与冬不拉氛围音">
+          <svg class="audio-icon playing" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          </svg>
+          <span class="music-wave">
+            <i></i><i></i><i></i><i></i>
+          </span>
+        </button>
+        <!-- Menu Drawer Button -->
+        <button class="action-btn menu-btn" id="menuToggleBtn" aria-label="目录导航">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Side Page Indicator Dots -->
+    <nav class="page-indicator" id="pageIndicator" aria-label="页面指示器">
+      <span class="indicator-dot active" data-index="0" title="封面"></span>
+      <span class="indicator-dot" data-index="1" title="秘境简介"></span>
+      <span class="indicator-dot" data-index="2" title="风光漫游"></span>
+      <span class="indicator-dot" data-index="3" title="四季风光"></span>
+      <span class="indicator-dot" data-index="4" title="人文风情"></span>
+      <span class="indicator-dot" data-index="5" title="游玩攻略"></span>
+      <span class="indicator-dot" data-index="6" title="生态研学"></span>
+      <span class="indicator-dot" data-index="7" title="赴约分享"></span>
+      <div class="page-number" id="pageNumberDisplay">01 / 08</div>
+    </nav>
+
+    <!-- Quick Navigation Modal / Drawer -->
+    <div class="nav-drawer-backdrop" id="navDrawerBackdrop"></div>
+    <aside class="nav-drawer" id="navDrawer">
+      <div class="drawer-header">
+        <div class="drawer-title-wrap">
+          <span class="drawer-subtitle" data-i18n="nav.subtitle">全景导览目录</span>
+          <h3 data-i18n="nav.title">库尔德宁秘境之旅</h3>
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="关闭">&times;</button>
+      </div>
+      <ul class="drawer-menu">
+        <li data-goto="0"><span class="menu-idx">01</span> <span data-i18n="menu.p1">天山绿谷·秘境封页</span></li>
+        <li data-goto="1"><span class="menu-idx">02</span> <span data-i18n="menu.p2">横沟奇迹·世界自然遗产</span></li>
+        <li data-goto="2"><span class="menu-idx">03</span> <span data-i18n="menu.p3">手绘导览·风光景点漫游</span></li>
+        <li data-goto="3"><span class="menu-idx">04</span> <span data-i18n="menu.p4">一谷四季·四时斑斓画卷</span></li>
+        <li data-goto="4"><span class="menu-idx">05</span> <span data-i18n="menu.p5">游牧古韵·哈萨克人文风情</span></li>
+        <li data-goto="5"><span class="menu-idx">06</span> <span data-i18n="menu.p6">实用手册·自驾食宿攻略</span></li>
+        <li data-goto="6"><span class="menu-idx">07</span> <span data-i18n="menu.p7">自然研学·雪岭云杉水库基因</span></li>
+        <li data-goto="7"><span class="menu-idx">08</span> <span data-i18n="menu.p8">相约天山·文旅打卡与分享</span></li>
+      </ul>
+      <div class="drawer-footer">
+        <p>巩留县文化体育广播电视和旅游局 · 监制</p>
+      </div>
+    </aside>
+
+    <!-- Main Vertical Slides Container -->
+    <main class="h5-slider-container" id="h5Slider">
+
+      <!-- ================= PAGE 1: 封面页 ================= -->
+      <section class="h5-page page-1 active" id="page-1" data-page="1">
+        <div class="page-bg-media page-1-bg">
+          <div class="bg-gradient-overlay"></div>
+          <canvas class="clouds-canvas" id="cloudsCanvas"></canvas>
+        </div>
+        
+        <!-- Kazakh ethnic decorative corner motifs -->
+        <div class="ethnic-motif motif-tl"></div>
+        <div class="ethnic-motif motif-tr"></div>
+
+        <div class="page-content page-1-content">
+          <div class="hero-badge animate-in">
+            <span class="badge-icon">✦</span>
+            <span data-i18n="p1.heritage">世界自然遗产 · 新疆天山核心区 ｜ 国家4A级景区</span>
+          </div>
+
+          <h1 class="hero-title animate-in delay-1">
+            <span class="title-sub" data-i18n="p1.subline">天山绿谷 · 云杉秘境</span>
+            <span class="title-main" data-i18n="p1.mainline">巩留 · 库尔德宁</span>
+            <span class="title-en">KURDENING · TIEN SHAN</span>
+          </h1>
+
+          <div class="hero-tags animate-in delay-2">
+            <span class="tag-pill">🌲 <span data-i18n="p1.tag1">雪岭云杉的故乡</span></span>
+            <span class="tag-pill">🏔️ <span data-i18n="p1.tag2">罕见南北横向阔谷</span></span>
+            <span class="tag-pill">🏕️ <span data-i18n="p1.tag3">哈萨克游牧风情</span></span>
+          </div>
+
+          <div class="hero-intro-text animate-in delay-3" data-i18n="p1.summary">
+            欧亚大陆野生生物天然基因库，这里汇聚天山至为壮丽的雪峰、林海与高山草甸。
+          </div>
+
+          <div class="hero-cta-wrapper animate-in delay-4">
+            <button class="pulse-cta-btn" id="startExploreBtn">
+              <span class="btn-ripple"></span>
+              <span class="cta-label" data-i18n="p1.btn">开启秘境之旅</span>
+              <svg class="cta-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="swipe-hint">
+              <span class="mouse-icon"><i></i></span>
+              <span data-i18n="common.swipeUp">向上轻扫 探寻秘境</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 2: 秘境简介 ================= -->
+      <section class="h5-page page-2" id="page-2" data-page="2">
+        <div class="page-bg-media page-2-bg">
+          <div class="bg-gradient-overlay dark-glass"></div>
+        </div>
+
+        <div class="ethnic-motif motif-bl"></div>
+        <div class="ethnic-motif motif-br"></div>
+
+        <div class="page-content page-scrollable">
+          <header class="section-header">
+            <div class="section-tag" data-i18n="p2.tag">CHAPTER 01 · 秘境认知</div>
+            <h2 class="section-title" data-i18n="p2.title">天山横沟，大美阔谷</h2>
+            <div class="section-divider">
+              <span class="divider-icon">❄</span>
+            </div>
+            <p class="section-lead" data-i18n="p2.lead">哈萨克语意为“横沟”——天山山脉绝无仅有的南北走向山间阔谷</p>
+          </header>
+
+          <!-- Core highlights grid -->
+          <div class="nature-cards-grid">
+            <div class="glass-card">
+              <div class="card-icon-num">01</div>
+              <h3 data-i18n="p2.card1Title">独特的地理奇观</h3>
+              <p data-i18n="p2.card1Desc">
+                天山山系绝大多数山谷呈东西走向，唯有库尔德宁是罕见的南北向谷地。特殊的走向截留了大西洋吹来的丰沛暖湿水汽，孕育了极度茂盛的冷杉林海与生物多样性。
+              </p>
+            </div>
+
+            <div class="glass-card">
+              <div class="card-icon-num">02</div>
+              <h3 data-i18n="p2.card2Title">雪岭云杉之王</h3>
+              <p data-i18n="p2.card2Desc">
+                西天山国家级自然保护区核心，中国森林蓄积量最高的高山针叶林区。这里拥有树龄超千年的“云杉王”，被中国国家地理誉为“中国最美十大森林”。
+              </p>
+            </div>
+
+            <div class="glass-card">
+              <div class="card-icon-num">03</div>
+              <h3 data-i18n="p2.card3Title">生态基因宝库</h3>
+              <p data-i18n="p2.card3Desc">
+                喀班巴依峰（海拔4257米）雄踞谷底，冰川融水汇聚成碧澈的库尔德宁河。雪豹、天山马鹿、金雕与野果林在此生息，构成欧亚大陆极其珍贵的物种庇护所。
+              </p>
+            </div>
+          </div>
+
+          <!-- Key facts banner -->
+          <div class="data-stat-bar">
+            <div class="stat-item">
+              <div class="stat-val">4257<small>m</small></div>
+              <div class="stat-lbl" data-i18n="p2.stat1">喀班巴依峰海拔</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-val">1000<small>+年</small></div>
+              <div class="stat-lbl" data-i18n="p2.stat2">云杉王树龄</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-val">100<small>%</small></div>
+              <div class="stat-lbl" data-i18n="p2.stat3">世界自然遗产核心</div>
+            </div>
+          </div>
+
+          <div class="scroll-continue-hint">
+            <span data-i18n="common.nextChapter">下一章：风光景点漫游</span> &darr;
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 3: 风光景点漫游 (核心互动页) ================= -->
+      <section class="h5-page page-3" id="page-3" data-page="3">
+        <div class="page-bg-media page-3-bg">
+          <div class="bg-gradient-overlay map-bg-overlay"></div>
+        </div>
+
+        <div class="page-content page-map-content">
+          <header class="section-header tight">
+            <div class="section-tag" data-i18n="p3.tag">CHAPTER 02 · 景点漫游</div>
+            <h2 class="section-title" data-i18n="p3.title">手绘导览 · 探索六大胜境</h2>
+            <p class="section-lead-sm" data-i18n="p3.lead">点击地图中的金色发光点位，沉浸查看景点图文与游玩亮点</p>
+          </header>
+
+          <!-- Interactive Hand-drawn Vector Landscape Map -->
+          <div class="interactive-map-container" id="interactiveMap">
+            <!-- SVG Map Art with Peaks, Valley River, Pine Forest, Yurts -->
+            <svg class="handrawn-map-svg" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1b3f3b" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#0a1a17" stop-opacity="0.95"/>
+                </linearGradient>
+                <linearGradient id="snowPeakGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="60%" stop-color="#d6e8e2"/>
+                  <stop offset="100%" stop-color="#5a7b6b"/>
+                </linearGradient>
+                <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4aa3a1" stop-opacity="0.9"/>
+                  <stop offset="50%" stop-color="#80d8cb" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#3d827f" stop-opacity="0.85"/>
+                </linearGradient>
+                <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffe3a3" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#ffe3a3" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+              </defs>
+
+              <!-- Map Background Base -->
+              <rect x="0" y="0" width="400" height="480" rx="16" fill="url(#skyGrad)"/>
+
+              <!-- Distant Snow Mountain Ridge (Kabanbayi Peak) -->
+              <path d="M 0 130 L 70 85 L 140 120 L 210 50 L 290 115 L 350 75 L 400 110 L 400 180 L 0 180 Z" fill="#24453b" opacity="0.6"/>
+              <!-- Majestic Snow Cap for Kabanbay Peak -->
+              <polygon points="210,50 180,95 240,95" fill="url(#snowPeakGrad)"/>
+              <polygon points="70,85 50,110 90,110" fill="url(#snowPeakGrad)"/>
+              <polygon points="350,75 330,105 370,105" fill="url(#snowPeakGrad)"/>
+
+              <!-- Rolling Meadow Terraces -->
+              <path d="M 0 180 Q 120 150 220 185 T 400 170 L 400 480 L 0 480 Z" fill="#133126" opacity="0.9"/>
+              <path d="M 0 240 Q 150 210 270 245 T 400 230 L 400 480 L 0 480 Z" fill="#1b4132"/>
+              <path d="M 0 310 Q 110 280 230 315 T 400 300 L 400 480 L 0 480 Z" fill="#16392b"/>
+
+              <!-- Winding Kurdening River -->
+              <path d="M 215 95 Q 230 160 190 220 T 170 330 Q 150 390 190 480" fill="none" stroke="url(#riverGrad)" stroke-width="7" stroke-linecap="round" filter="url(#glowEffect)"/>
+              <path d="M 215 95 Q 230 160 190 220 T 170 330 Q 150 390 190 480" fill="none" stroke="#e0f7fa" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,6" opacity="0.75"/>
+
+              <!-- Pine Tree Silhouettes (Spruce Forest Groups) -->
+              <!-- Cluster Left -->
+              <g fill="#0b241a" opacity="0.85">
+                <polygon points="40,210 32,235 48,235"/>
+                <polygon points="55,200 46,230 64,230"/>
+                <polygon points="70,215 63,240 77,240"/>
+                <polygon points="50,225 40,255 60,255"/>
+                <polygon points="65,230 57,258 73,258"/>
+              </g>
+              <!-- Cluster Right -->
+              <g fill="#0b241a" opacity="0.85">
+                <polygon points="320,180 312,205 328,205"/>
+                <polygon points="340,170 330,200 350,200"/>
+                <polygon points="360,185 352,210 368,210"/>
+                <polygon points="330,220 320,248 340,248"/>
+                <polygon points="350,215 342,245 358,245"/>
+              </g>
+              <!-- Middle Valley Spruce -->
+              <g fill="#0f2b20">
+                <polygon points="120,340 110,375 130,375"/>
+                <polygon points="105,355 96,388 114,388"/>
+                <polygon points="260,320 250,355 270,355"/>
+                <polygon points="280,335 272,365 288,365"/>
+              </g>
+
+              <!-- Kazak Traditional Yurts Decorative Icons -->
+              <g transform="translate(90, 240) scale(0.6)" fill="#fdfbf7">
+                <path d="M 0 25 Q 25 0 50 25 L 50 45 L 0 45 Z" fill="#eae4d3"/>
+                <rect x="20" y="30" width="10" height="15" fill="#a4522a"/>
+                <line x1="25" y1="2" x2="25" y2="25" stroke="#a4522a" stroke-width="2"/>
+              </g>
+              <g transform="translate(265, 385) scale(0.7)" fill="#fdfbf7">
+                <path d="M 0 25 Q 25 0 50 25 L 50 45 L 0 45 Z" fill="#eae4d3"/>
+                <rect x="20" y="30" width="10" height="15" fill="#a4522a"/>
+              </g>
+
+              <!-- Grazing Sheep / Cattle dots -->
+              <circle cx="120" cy="275" r="3" fill="#ffffff" opacity="0.8"/>
+              <circle cx="128" cy="278" r="2.5" fill="#ffffff" opacity="0.8"/>
+              <circle cx="135" cy="273" r="2.5" fill="#ffffff" opacity="0.8"/>
+              <circle cx="280" cy="270" r="3" fill="#edd6b8" opacity="0.8"/>
+              <circle cx="290" cy="274" r="2.5" fill="#ffffff" opacity="0.8"/>
+
+              <!-- Scenic Spot Hotspots (Interactive Buttons inside SVG) -->
+              <!-- Spot 1: 喀峰大本营 -->
+              <g class="map-pin" data-spot="kabanbay" transform="translate(210, 80)">
+                <circle class="pin-radar" r="16"/>
+                <circle class="pin-core" r="8"/>
+                <circle class="pin-dot" r="3"/>
+                <text x="0" y="-14" class="pin-label" text-anchor="middle">喀峰大本营</text>
+              </g>
+
+              <!-- Spot 2: 齐梦德观景台 -->
+              <g class="map-pin active" data-spot="qimengde" transform="translate(110, 165)">
+                <circle class="pin-radar" r="18"/>
+                <circle class="pin-core" r="9"/>
+                <circle class="pin-dot" r="4"/>
+                <text x="0" y="-15" class="pin-label highlight" text-anchor="middle">齐梦德观景台 ★</text>
+              </g>
+
+              <!-- Spot 3: 云杉王 -->
+              <g class="map-pin" data-spot="spruce-king" transform="translate(285, 185)">
+                <circle class="pin-radar" r="16"/>
+                <circle class="pin-core" r="8"/>
+                <circle class="pin-dot" r="3"/>
+                <text x="0" y="-14" class="pin-label" text-anchor="middle">千年云杉王</text>
+              </g>
+
+              <!-- Spot 4: 云上草原 -->
+              <g class="map-pin" data-spot="cloud-meadow" transform="translate(85, 290)">
+                <circle class="pin-radar" r="16"/>
+                <circle class="pin-core" r="8"/>
+                <circle class="pin-dot" r="3"/>
+                <text x="0" y="-14" class="pin-label" text-anchor="middle">云上草原</text>
+              </g>
+
+              <!-- Spot 5: 十里画廊 -->
+              <g class="map-pin" data-spot="ten-li-gallery" transform="translate(225, 275)">
+                <circle class="pin-radar" r="16"/>
+                <circle class="pin-core" r="8"/>
+                <circle class="pin-dot" r="3"/>
+                <text x="0" y="-14" class="pin-label" text-anchor="middle">十里画廊</text>
+              </g>
+
+              <!-- Spot 6: 阿尤赛观景台 -->
+              <g class="map-pin" data-spot="ayousai" transform="translate(195, 395)">
+                <circle class="pin-radar" r="16"/>
+                <circle class="pin-core" r="8"/>
+                <circle class="pin-dot" r="3"/>
+                <text x="0" y="-14" class="pin-label" text-anchor="middle">阿尤赛观景台</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Bottom Card: Current Selected Spot Details (Carousel / Swiper capable) -->
+          <div class="spot-card-modal" id="spotDetailCard">
+            <div class="spot-card-handle"></div>
+            <div class="spot-media-wrap">
+              <div class="spot-img" id="spotImg" style="background-image: url('assets/qimengde.jpg');"></div>
+              <div class="spot-badge" id="spotTag">经典必打卡</div>
+              <div class="spot-nav-arrows">
+                <button class="spot-arrow-btn" id="spotPrevBtn" aria-label="上一个景点">&lsaquo;</button>
+                <button class="spot-arrow-btn" id="spotNextBtn" aria-label="下一个景点">&rsaquo;</button>
+              </div>
+            </div>
+            <div class="spot-info-wrap">
+              <div class="spot-header-row">
+                <h3 class="spot-name" id="spotName">齐梦德观景台</h3>
+                <span class="spot-elevation" id="spotElevation">海拔 2150m</span>
+              </div>
+              <p class="spot-desc" id="spotDesc">
+                库尔德宁最为震撼的“神级机位”。站在此处，雪山冰川、墨绿云杉林海、波浪起伏的草甸毡房与晨昏云海同框，是摄影师与游客向往的梦幻胜景。
+              </p>
+              <div class="spot-tips">
+                <span class="tip-tag">📸 晨曦出片机位</span>
+                <span class="tip-tag">🚶 适合木栈道徒步</span>
+                <span class="tip-tag">☁️ 观常态化云海</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 4: 四季库尔德宁 ================= -->
+      <section class="h5-page page-4" id="page-4" data-page="4">
+        <div class="page-bg-media page-4-bg" id="seasonsBg">
+          <div class="bg-gradient-overlay dark-glass"></div>
+        </div>
+
+        <div class="page-content page-scrollable">
+          <header class="section-header">
+            <div class="section-tag" data-i18n="p4.tag">CHAPTER 03 · 时序变幻</div>
+            <h2 class="section-title" data-i18n="p4.title">一谷四季 · 旷野华章</h2>
+            <div class="section-divider">
+              <span class="divider-icon">🍂</span>
+            </div>
+            <p class="section-lead" data-i18n="p4.lead">从漫山野花到水墨雪国，领略天山秘境在365天里的无尽流转</p>
+          </header>
+
+          <!-- Season Selector Tabs -->
+          <div class="seasons-tab-bar" id="seasonTabs">
+            <button class="season-tab-btn active" data-season="spring">
+              <span class="season-icon">🌸</span>
+              <span class="season-name" data-i18n="p4.spring">春·花海</span>
+              <small>4-5月</small>
+            </button>
+            <button class="season-tab-btn" data-season="summer">
+              <span class="season-icon">🌿</span>
+              <span class="season-name" data-i18n="p4.summer">夏·林海</span>
+              <small>6-8月</small>
+            </button>
+            <button class="season-tab-btn" data-season="autumn">
+              <span class="season-icon">🍁</span>
+              <span class="season-name" data-i18n="p4.autumn">秋·彩林</span>
+              <small>9-10月</small>
+            </button>
+            <button class="season-tab-btn" data-season="winter">
+              <span class="season-icon">❄️</span>
+              <span class="season-name" data-i18n="p4.winter">冬·雪国</span>
+              <small>11-3月</small>
+            </button>
+          </div>
+
+          <!-- Season Card Display -->
+          <div class="season-showcase-card" id="seasonCard">
+            <div class="season-visual-banner" id="seasonBanner">
+              <div class="season-color-badge" id="seasonPalette">#春天嫩青 & 野杏粉</div>
+            </div>
+            <div class="season-detail-body">
+              <h3 class="season-headline" id="seasonHeadline">春醒天山 · 芳华初绽</h3>
+              <p class="season-poem" id="seasonPoem">“冰雪消融谷水潺，顶冰花开满山峦；漫山野杏云杉伴，牧人初归绿野还。”</p>
+              <div class="season-traits-list" id="seasonTraits">
+                <div class="trait-item">
+                  <span class="trait-bullet">✦</span>
+                  <span class="trait-txt"><strong>特色景观：</strong>天山顶冰花破雪盛放，野杏花、金莲花次第铺满河谷</span>
+                </div>
+                <div class="trait-item">
+                  <span class="trait-bullet">✦</span>
+                  <span class="trait-txt"><strong>气温适宜：</strong>12℃ ~ 22℃，清新微凉，适合初春探秘与摄影研学</span>
+                </div>
+                <div class="trait-item">
+                  <span class="trait-bullet">✦</span>
+                  <span class="trait-txt"><strong>不可错过：</strong>库尔德宁河畔冰川融水初涨，草原初青的宁静静谧</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scroll-continue-hint">
+            <span data-i18n="common.nextChapter">下一章：哈萨克人文风情</span> &darr;
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 5: 人文风情 ================= -->
+      <section class="h5-page page-5" id="page-5" data-page="5">
+        <div class="page-bg-media page-5-bg">
+          <div class="bg-gradient-overlay dark-amber-glass"></div>
+        </div>
+
+        <div class="page-content page-scrollable">
+          <header class="section-header">
+            <div class="section-tag" data-i18n="p5.tag">CHAPTER 04 · 游牧记忆</div>
+            <h2 class="section-title" data-i18n="p5.title">哈萨克风情 · 旷野长歌</h2>
+            <div class="section-divider">
+              <span class="divider-icon">🐎</span>
+            </div>
+            <p class="section-lead" data-i18n="p5.lead">世代驻牧于此的哈萨克牧民，将诗歌、琴弦与转场刻入群山血脉</p>
+          </header>
+
+          <div class="culture-cards-stack">
+            <!-- Culture Item 1 -->
+            <div class="culture-card">
+              <div class="culture-badge">草原音韵</div>
+              <div class="culture-inner">
+                <div class="culture-icon-box">🪕</div>
+                <div class="culture-text">
+                  <h3 data-i18n="p5.item1Title">冬不拉与阿肯阿依特斯</h3>
+                  <p data-i18n="p5.item1Desc">
+                    “没有歌声的地方就像没有草的荒原”。两根琴弦的冬不拉能弹奏风声与马蹄声；每年夏秋的阿肯弹唱对歌会（国家级非遗），是草原最深情的智慧较量。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Culture Item 2 -->
+            <div class="culture-card">
+              <div class="culture-badge">游牧栖居</div>
+              <div class="culture-inner">
+                <div class="culture-icon-box">🏕️</div>
+                <div class="culture-text">
+                  <h3 data-i18n="p5.item2Title">白毡房、咸奶茶与手抓肉</h3>
+                  <p data-i18n="p5.item2Desc">
+                    毡房（宇）被称为“会呼吸的草原房屋”，冬暖夏凉易于拆迁。推门而入，热腾腾的砖茶熬煮鲜牛奶加一撮青盐，搭配喷香的纳仁、手抓羊肉与包尔萨克，尽显极度纯朴的热情好客。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Culture Item 3 -->
+            <div class="culture-card">
+              <div class="culture-badge">英雄史诗</div>
+              <div class="culture-inner">
+                <div class="culture-icon-box">⚔️</div>
+                <div class="culture-text">
+                  <h3 data-i18n="p5.item3Title">喀班巴依英雄传说与壮丽转场</h3>
+                  <p data-i18n="p5.item3Desc">
+                    库尔德宁的主峰“喀班巴依峰”以18世纪哈萨克民族英雄喀班巴依巴图鲁命名。每年春秋两季，浩浩荡荡的牛羊马群在云杉狭谷间踏起黄色烟尘转场迁徙，构成人类游牧文明活化石般的壮烈图景。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Culture Item 4 -->
+            <div class="culture-card">
+              <div class="culture-badge">马背豪情</div>
+              <div class="culture-inner">
+                <div class="culture-icon-box">🏇</div>
+                <div class="culture-text">
+                  <h3 data-i18n="p5.item4Title">赛马叼羊与黑走马舞</h3>
+                  <p data-i18n="p5.item4Desc">
+                    叼羊比赛速度与力量交织，姑娘追欢声笑语响彻草甸；夕阳西下，篝火燃起，男女老幼踩着“黑走马（卡拉角勒哈）”的节奏摇肩踏足，欢聚直至星空璀璨。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scroll-continue-hint">
+            <span data-i18n="common.nextChapter">下一章：游玩实用攻略</span> &darr;
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 6: 游玩攻略 ================= -->
+      <section class="h5-page page-6" id="page-6" data-page="6">
+        <div class="page-bg-media page-6-bg">
+          <div class="bg-gradient-overlay dark-glass"></div>
+        </div>
+
+        <div class="page-content page-scrollable">
+          <header class="section-header">
+            <div class="section-tag" data-i18n="p6.tag">CHAPTER 05 · 行前指南</div>
+            <h2 class="section-title" data-i18n="p6.title">畅行秘境 · 实用游玩手册</h2>
+            <div class="section-divider">
+              <span class="divider-icon">🧭</span>
+            </div>
+            <p class="section-lead" data-i18n="p6.lead">交通、门票、食宿、自驾环线与生态准则全指南</p>
+          </header>
+
+          <div class="guide-accordion">
+            <!-- Guide Section 1: 交通与环线 -->
+            <div class="accordion-item open">
+              <div class="accordion-header">
+                <div class="header-left">
+                  <span class="acc-icon">🚗</span>
+                  <span class="acc-title" data-i18n="p6.acc1Title">交通路线与自驾环线</span>
+                </div>
+                <span class="acc-chevron">&rsaquo;</span>
+              </div>
+              <div class="accordion-body">
+                <p><strong>到达距离：</strong>巩留县城至景区东门约60公里（车程约1-1.5小时）；伊宁市至库尔德宁约150公里（车程约2.5-3小时）。</p>
+                <p><strong>自驾/区间车：</strong>景区支持自驾车进入（需提前在文旅平台预约自驾票，每日限额），亦可乘坐观光区间车。</p>
+                <div class="alert-box">
+                  <strong>⚠️ 单向环线提醒：</strong>景区内道路狭窄风景奇险，旺季实行单向通行交通管制（东门进 - 中区 - 西门出），请务必遵从路标指示驾驶。
+                </div>
+              </div>
+            </div>
+
+            <!-- Guide Section 2: 门票与开放 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="header-left">
+                  <span class="acc-icon">🎫</span>
+                  <span class="acc-title" data-i18n="p6.acc2Title">门票开放与用时推荐</span>
+                </div>
+                <span class="acc-chevron">&rsaquo;</span>
+              </div>
+              <div class="accordion-body">
+                <p><strong>开放时间：</strong>夏秋季 08:30 - 20:00（18:30停止入园）；冬春季 09:30 - 18:30。</p>
+                <p><strong>推荐游玩时长：</strong></p>
+                <ul>
+                  <li><strong>一日精华游（5-7小时）：</strong>东门入园 &rarr; 十里画廊 &rarr; 齐梦德观景台木栈道 &rarr; 云杉王 &rarr; 西门出</li>
+                  <li><strong>两日深度徒步（2天1晚）：</strong>宿景区特色星空民宿/白毡房，徒步喀峰大本营与阿尤赛观景台，观银河日出</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Guide Section 3: 食宿体验 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="header-left">
+                  <span class="acc-icon">🏕️</span>
+                  <span class="acc-title" data-i18n="p6.acc3Title">特色食宿推荐</span>
+                </div>
+                <span class="acc-chevron">&rsaquo;</span>
+              </div>
+              <div class="accordion-body">
+                <p><strong>住宿：</strong></p>
+                <ul>
+                  <li><strong>轻奢度假：</strong>花儿宿、云杉别院等中高端森林木屋民宿（推窗见雪山）</li>
+                  <li><strong>游牧体验：</strong>景区内合规经营的哈萨克牧民星空毡房（夜晚抬头即是无光害天山银河）</li>
+                </ul>
+                <p><strong>必尝风味：</strong>巩留野苹果果酱、柴窝堡土鸡、面肺子米肠、烤包子、手工酸奶与哈萨克咸奶茶。</p>
+              </div>
+            </div>
+
+            <!-- Guide Section 4: 出行装备与环保提示 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="header-left">
+                  <span class="acc-icon">🎒</span>
+                  <span class="acc-title" data-i18n="p6.acc4Title">装备指南与生态保护守则</span>
+                </div>
+                <span class="acc-chevron">&rsaquo;</span>
+              </div>
+              <div class="accordion-body">
+                <p><strong>穿衣装备：</strong>山区天气瞬息万变，“早穿皮袄午穿纱”，请常备防风冲锋衣、保暖内胆、防滑徒步鞋、防晒墨镜、雨具。</p>
+                <div class="alert-box green">
+                  <strong>🌱 世界自然遗产守则：</strong>
+                  1. 保护区内严禁任何野外用火与吸烟；<br>
+                  2. 严格遵循“无痕山野（LNT）”，产生垃圾全部随身带下山；<br>
+                  3. 不踩踏破坏高山草甸植被，禁止采摘珍稀野生植物与伤害野生动物。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scroll-continue-hint">
+            <span data-i18n="common.nextChapter">下一章：生态研学科普</span> &darr;
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 7: 生态研学科普 ================= -->
+      <section class="h5-page page-7" id="page-7" data-page="7">
+        <div class="page-bg-media page-7-bg">
+          <div class="bg-gradient-overlay dark-emerald-glass"></div>
+        </div>
+
+        <div class="page-content page-scrollable">
+          <header class="section-header">
+            <div class="section-tag" data-i18n="p7.tag">CHAPTER 06 · 自然研学</div>
+            <h2 class="section-title" data-i18n="p7.title">一木一世界 · 天山云杉水库</h2>
+            <div class="section-divider">
+              <span class="divider-icon">🌱</span>
+            </div>
+            <p class="section-lead" data-i18n="p7.lead">雪岭云杉（Schrenk's Spruce）——天山森林生态系统的灵魂守护者</p>
+          </header>
+
+          <!-- Interactive Spruce Reservoir Feature Block -->
+          <div class="spruce-reservoir-card">
+            <div class="reservoir-header">
+              <div class="res-badge">💧 科学奇迹</div>
+              <h3>为什么说“一棵雪岭云杉就是一座微型水库”？</h3>
+            </div>
+            <div class="reservoir-diagram">
+              <div class="diagram-step">
+                <span class="diag-num">1</span>
+                <div class="diag-info">
+                  <strong>林冠截留：</strong>
+                  <span>密集的针叶林冠层能截留15%~30%的大气降水，避免暴雨直接冲刷高山土壤。</span>
+                </div>
+              </div>
+              <div class="diagram-step">
+                <span class="diag-num">2</span>
+                <div class="diag-info">
+                  <strong>海绵苔藓层：</strong>
+                  <span>林下厚达10~30cm的枯枝落叶与苔藓层，如同吸水海绵，蓄水能力是自身重量的3~5倍。</span>
+                </div>
+              </div>
+              <div class="diagram-step">
+                <span class="diag-num">3</span>
+                <div class="diag-info">
+                  <strong>深根系涵养：</strong>
+                  <span>发达的庞大根系牢牢锚固山岩碎石，缓慢向地下渗透过滤，成为库尔德宁河清泉终年流淌的源泉。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Biodiversity Wild Species Cards -->
+          <h3 class="sub-block-title" data-i18n="p7.speciesTitle">库尔德宁珍稀野生动植物名录</h3>
+          <div class="species-grid">
+            <div class="species-card">
+              <div class="species-avatar">🐆</div>
+              <div class="species-name">雪豹 (Snow Leopard)</div>
+              <div class="species-status">国家一级重点保护 · 高原雪山之王</div>
+              <p>天山顶级掠食者，常活动于喀班巴依峰雪线岩石地带，是生态链健康的晴雨表。</p>
+            </div>
+            <div class="species-card">
+              <div class="species-avatar">🦅</div>
+              <div class="species-name">金雕 (Golden Eagle)</div>
+              <div class="species-status">国家一级保护 · 猛禽霸主</div>
+              <p>翼展超2米，盘旋于云杉峡谷之上，天山草原游牧文化敬畏的精神图腾。</p>
+            </div>
+            <div class="species-card">
+              <div class="species-avatar">🦌</div>
+              <div class="species-name">天山马鹿 (Red Deer)</div>
+              <div class="species-status">国家二级保护动物</div>
+              <p>体型魁伟，晨昏时分常在云上草原边缘针阔混交林带觅食穿梭。</p>
+            </div>
+            <div class="species-card">
+              <div class="species-avatar">🍎</div>
+              <div class="species-name">野生古果林 (Wild Apple)</div>
+              <div class="species-status">珍贵古老原始孑遗</div>
+              <p>欧亚大陆驯化苹果的原始祖先基因库，第三纪古热带森林的冰期避难所。</p>
+            </div>
+          </div>
+
+          <!-- Nature Quiz Interactive Module -->
+          <div class="eco-quiz-card" id="ecoQuizBox">
+            <div class="quiz-badge">💡 研学小测试</div>
+            <h4 id="quizQuestion">问：雪岭云杉为何在库尔德宁长得最为高大茂密？</h4>
+            <div class="quiz-options" id="quizOptions">
+              <button class="quiz-opt-btn" data-correct="false">A. 因为这里的气温终年酷暑炎热</button>
+              <button class="quiz-opt-btn" data-correct="true">B. 罕见南北横谷截留大西洋暖湿水汽形成丰沛降水</button>
+              <button class="quiz-opt-btn" data-correct="false">C. 因为山峰阻挡了所有的光照</button>
+            </div>
+            <div class="quiz-feedback" id="quizFeedback"></div>
+          </div>
+
+          <div class="scroll-continue-hint">
+            <span data-i18n="common.nextChapter">下一章：赴约分享与打卡</span> &darr;
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PAGE 8: 尾页·赴约分享与打卡 ================= -->
+      <section class="h5-page page-8" id="page-8" data-page="8">
+        <div class="page-bg-media page-8-bg">
+          <div class="bg-gradient-overlay final-glass"></div>
+        </div>
+
+        <div class="page-content page-scrollable final-page-content">
+          <header class="section-header">
+            <div class="hero-badge">
+              <span class="badge-icon">✦</span>
+              <span>新疆 · 巩留 · 库尔德宁</span>
+            </div>
+            <h2 class="section-title final-title" data-i18n="p8.slogan">赴一场天山之约<br>遇见库尔德宁</h2>
+            <p class="section-lead" data-i18n="p8.subSlogan">把心留在云杉深处，把天山清风带回家</p>
+          </header>
+
+          <!-- Interactive Postcard / Share Banner -->
+          <div class="share-postcard-card" id="postcardPreview">
+            <div class="postcard-visual">
+              <div class="postcard-stamp">
+                <span>巩留<br>邮戳</span>
+              </div>
+              <div class="postcard-text">
+                <span class="pc-to">To: 亲爱的旅行者</span>
+                <p class="pc-body">“我在雪岭云杉的故乡，喀班巴依雪山之下，愿与你分享这片被大自然眷顾的天山横谷秘境。”</p>
+                <span class="pc-from">来自：巩留库尔德宁国家级自然保护区</span>
+              </div>
+            </div>
+            
+            <div class="postcard-actions">
+              <button class="btn-share-trigger" id="genPostcardBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                  <polyline points="16 6 12 2 8 6"></polyline>
+                  <line x1="12" y1="2" x2="12" y2="15"></line>
+                </svg>
+                <span data-i18n="p8.shareCard">生成旅行明信片海报</span>
+              </button>
+              <button class="btn-share-trigger secondary" id="copyLinkBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span data-i18n="p8.copyLink">转发微信朋友圈</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Guestbook / Travel Wish Form -->
+          <div class="guestbook-section">
+            <div class="guestbook-header">
+              <span class="gb-icon">💬</span>
+              <h3 data-i18n="p8.boardTitle">游客互动留言打卡墙</h3>
+            </div>
+            
+            <form class="comment-form" id="commentForm">
+              <div class="form-inputs">
+                <input type="text" id="commentAuthor" placeholder="您的昵称 / 来自何地" maxlength="16" required>
+                <textarea id="commentContent" placeholder="写下一句你对库尔德宁的期待或天山寄语..." rows="2" maxlength="80" required></textarea>
+              </div>
+              <button type="submit" class="submit-comment-btn" id="submitCommentBtn">
+                <span data-i18n="p8.submitBtn">提交祝福打卡</span>
+              </button>
+            </form>
+
+            <!-- Dynamic Messages List -->
+            <div class="comment-stream" id="commentStream">
+              <!-- Preset real messages -->
+              <div class="comment-bubble">
+                <div class="cb-header">
+                  <span class="cb-user">🌲 摄影师老陈 (北京)</span>
+                  <span class="cb-time">刚刚</span>
+                </div>
+                <div class="cb-text">十年前去过一次齐梦德，云海翻滚的那一幕至今难忘，今年秋天一定再赴约！</div>
+              </div>
+              <div class="comment-bubble">
+                <div class="cb-header">
+                  <span class="cb-user">⛺ 研学旅行导师Amy (上海)</span>
+                  <span class="cb-time">1小时前</span>
+                </div>
+                <div class="cb-text">把这个H5直接收藏作为给学生们的高中山地生态研学课件，内容太详实了！</div>
+              </div>
+              <div class="comment-bubble">
+                <div class="cb-header">
+                  <span class="cb-user">🐎 阿斯哈尔 (巩留本地)</span>
+                  <span class="cb-time">今天</span>
+                </div>
+                <div class="cb-text">欢迎全国各地的朋友来我们巩留做客，大锅奶茶和手抓羊肉管够！</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official QR & Information Footnote -->
+          <div class="official-footer">
+            <div class="qr-mockup">
+              <!-- Dynamic Canvas or SVG QR code -->
+              <div class="qr-box">
+                <svg viewBox="0 0 100 100" width="80" height="80">
+                  <rect width="100" height="100" fill="#ffffff" rx="8"/>
+                  <rect x="10" y="10" width="26" height="26" fill="#133e2b"/>
+                  <rect x="14" y="14" width="18" height="18" fill="#ffffff"/>
+                  <rect x="18" y="18" width="10" height="10" fill="#133e2b"/>
+                  <rect x="64" y="10" width="26" height="26" fill="#133e2b"/>
+                  <rect x="68" y="14" width="18" height="18" fill="#ffffff"/>
+                  <rect x="72" y="18" width="10" height="10" fill="#133e2b"/>
+                  <rect x="10" y="64" width="26" height="26" fill="#133e2b"/>
+                  <rect x="14" y="68" width="18" height="18" fill="#ffffff"/>
+                  <rect x="18" y="72" width="10" height="10" fill="#133e2b"/>
+                  <!-- random matrix dots for qr look -->
+                  <rect x="42" y="12" width="6" height="6" fill="#133e2b"/>
+                  <rect x="52" y="18" width="6" height="6" fill="#133e2b"/>
+                  <rect x="44" y="28" width="6" height="6" fill="#133e2b"/>
+                  <rect x="14" y="44" width="6" height="6" fill="#133e2b"/>
+                  <rect x="24" y="52" width="6" height="6" fill="#133e2b"/>
+                  <rect x="46" y="46" width="8" height="8" fill="#c67d43"/>
+                  <rect x="62" y="44" width="6" height="6" fill="#133e2b"/>
+                  <rect x="74" y="52" width="6" height="6" fill="#133e2b"/>
+                  <rect x="42" y="66" width="6" height="6" fill="#133e2b"/>
+                  <rect x="54" y="74" width="6" height="6" fill="#133e2b"/>
+                  <rect x="72" y="70" width="8" height="8" fill="#133e2b"/>
+                  <rect x="82" y="80" width="8" height="8" fill="#133e2b"/>
+                </svg>
+              </div>
+              <div class="qr-text">
+                <strong>扫码关注“巩留文旅”</strong>
+                <small>获取最新自驾预约、门票与天气实况</small>
+              </div>
+            </div>
+
+            <div class="footer-meta">
+              <p>咨询电话：0999-5622088 ｜ 景区地址：新疆伊犁州巩留县库尔德宁镇</p>
+              <p class="copyright">Copyright © 2026 巩留县文旅局 · 库尔德宁景区 版权所有</p>
+            </div>
+
+            <button class="back-to-top-btn" id="backToTopBtn">
+              &uarr; 回到秘境首页
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Modal: WeChat Share Guide Mask -->
+    <div class="share-guide-mask" id="shareGuideMask">
+      <div class="share-arrow-anim"></div>
+      <div class="share-tip-box">
+        <p>点击右上角 <span class="dots">···</span><br>分享到<strong>朋友圈</strong>或发送给<strong>好友</strong></p>
+        <button class="close-mask-btn" id="closeShareMaskBtn">知道了</button>
+      </div>
+    </div>
+
+    <!-- Modal: Generated Postcard Canvas Overlay -->
+    <div class="postcard-modal-mask" id="postcardModalMask">
+      <div class="postcard-dialog">
+        <button class="dialog-close-btn" id="closePostcardModalBtn">&times;</button>
+        <h3>你的专属天山纪念明信片</h3>
+        <p class="sub">长按保存图片，随时分享至微信好友或朋友圈</p>
+        <div class="canvas-render-container" id="canvasRenderContainer">
+          <!-- Canvas injected dynamically -->
+        </div>
+        <div class="dialog-footer">
+          <button class="action-btn-pill" id="downloadPostcardBtn">保存到相册</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast message popup -->
+    <div class="toast-tip" id="toastTip"></div>
+
+  </div>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>
