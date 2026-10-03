@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
   <title>天山绿谷·云杉秘境 | 巩留库尔德宁</title>
-  <meta name="description" content="巩留库尔德宁文旅宣传H5：世界自然遗产·新疆天山核心区，雪岭云杉的故乡，哈萨克游牧风情，沉浸式互动导览与生态研学。">
+  <meta name="description" content="巩留库尔德宁生态秘境导览H5：世界自然遗产·新疆天山核心区，雪岭云杉的故乡，哈萨克游牧风情，沉浸式互动导览与生态研学。">
   <meta name="keywords" content="库尔德宁, 巩留, 伊犁旅游, 雪岭云杉, 新疆天山, 世界自然遗产, 齐梦德观景台, 喀班巴依峰">
 
   <!-- Open Graph for WeChat / Social Sharing -->
@@ -89,10 +89,10 @@
         <li data-goto="4"><span class="menu-idx">05</span> <span data-i18n="menu.p5">游牧古韵·哈萨克人文风情</span></li>
         <li data-goto="5"><span class="menu-idx">06</span> <span data-i18n="menu.p6">实用手册·自驾食宿攻略</span></li>
         <li data-goto="6"><span class="menu-idx">07</span> <span data-i18n="menu.p7">自然研学·雪岭云杉水库基因</span></li>
-        <li data-goto="7"><span class="menu-idx">08</span> <span data-i18n="menu.p8">相约天山·文旅打卡与分享</span></li>
+        <li data-goto="7"><span class="menu-idx">08</span> <span data-i18n="menu.p8">相约天山·互动打卡与分享</span></li>
       </ul>
       <div class="drawer-footer">
-        <p>巩留县文化体育广播电视和旅游局 · 监制</p>
+        <p>新疆·巩留 库尔德宁国家级自然保护区</p>
       </div>
     </aside>
 
@@ -102,7 +102,11 @@
       <!-- ================= PAGE 1: 封面页 ================= -->
       <section class="h5-page page-1 active" id="page-1" data-page="1">
         <div class="page-bg-media page-1-bg">
-          <div class="bg-gradient-overlay"></div>
+          <!-- Background Video: Kurdening Aerial Footage (Online Stream) -->
+          <video class="hero-bg-video" id="heroBgVideo" autoplay loop muted playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page" preload="auto" disablePictureInPicture poster="assets/cover.jpg">
+            <source src="https://pub-762eca3127fb49a2b719bd7823461209.r2.dev/01ea3503fa3a5ec14f0370019edf18411b_258.mp4%3Fsign%3Da6e92957881aabc38dae136293264320%26t%3D6ab9a980video.MP4" type="video/mp4">
+          </video>
+          <div class="bg-gradient-overlay hero-video-overlay"></div>
           <canvas class="clouds-canvas" id="cloudsCanvas"></canvas>
         </div>
         
@@ -225,20 +229,19 @@
         </div>
 
         <div class="page-content page-map-content">
-          <header class="section-header tight">
+          <header class="section-header compact">
             <div class="section-tag" data-i18n="p3.tag">CHAPTER 02 · 景点漫游</div>
             <h2 class="section-title" data-i18n="p3.title">手绘导览 · 探索六大胜境</h2>
-            <p class="section-lead-sm" data-i18n="p3.lead">点击地图中的金色发光点位，沉浸查看景点图文与游玩亮点</p>
+            <p class="section-lead-sm" data-i18n="p3.lead">点击上方地图发光点位，或左右滑动下方大图漫游六大胜景</p>
           </header>
 
-          <!-- Interactive Hand-drawn Vector Landscape Map -->
-          <div class="interactive-map-container" id="interactiveMap">
-            <!-- SVG Map Art with Peaks, Valley River, Pine Forest, Yurts -->
-            <svg class="handrawn-map-svg" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet">
+          <!-- Interactive Hand-drawn Vector Landscape Map (Compact Sandbox) -->
+          <div class="interactive-map-container compact-map" id="interactiveMap">
+            <svg class="handrawn-map-svg" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid meet">
               <defs>
                 <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1b3f3b" stop-opacity="0.8"/>
-                  <stop offset="100%" stop-color="#0a1a17" stop-opacity="0.95"/>
+                  <stop offset="0%" stop-color="#194038" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#091b16" stop-opacity="0.95"/>
                 </linearGradient>
                 <linearGradient id="snowPeakGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stop-color="#ffffff"/>
@@ -246,14 +249,10 @@
                   <stop offset="100%" stop-color="#5a7b6b"/>
                 </linearGradient>
                 <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#4aa3a1" stop-opacity="0.9"/>
-                  <stop offset="50%" stop-color="#80d8cb" stop-opacity="0.95"/>
+                  <stop offset="0%" stop-color="#4aa3a1" stop-opacity="0.95"/>
+                  <stop offset="50%" stop-color="#80d8cb" stop-opacity="1"/>
                   <stop offset="100%" stop-color="#3d827f" stop-opacity="0.85"/>
                 </linearGradient>
-                <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#ffe3a3" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#ffe3a3" stop-opacity="0"/>
-                </radialGradient>
                 <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
                   <feGaussianBlur stdDeviation="3" result="blur"/>
                   <feComposite in="SourceGraphic" in2="blur" operator="over"/>
@@ -261,138 +260,144 @@
               </defs>
 
               <!-- Map Background Base -->
-              <rect x="0" y="0" width="400" height="480" rx="16" fill="url(#skyGrad)"/>
+              <rect x="0" y="0" width="400" height="240" rx="14" fill="url(#skyGrad)"/>
 
-              <!-- Distant Snow Mountain Ridge (Kabanbayi Peak) -->
-              <path d="M 0 130 L 70 85 L 140 120 L 210 50 L 290 115 L 350 75 L 400 110 L 400 180 L 0 180 Z" fill="#24453b" opacity="0.6"/>
-              <!-- Majestic Snow Cap for Kabanbay Peak -->
-              <polygon points="210,50 180,95 240,95" fill="url(#snowPeakGrad)"/>
-              <polygon points="70,85 50,110 90,110" fill="url(#snowPeakGrad)"/>
-              <polygon points="350,75 330,105 370,105" fill="url(#snowPeakGrad)"/>
+              <!-- Distant Snow Mountain Ridge -->
+              <path d="M 0 65 L 60 40 L 130 58 L 200 22 L 280 55 L 340 35 L 400 50 L 400 95 L 0 95 Z" fill="#24453b" opacity="0.6"/>
+              <!-- Snow Peaks -->
+              <polygon points="200,22 175,48 225,48" fill="url(#snowPeakGrad)"/>
+              <polygon points="60,40 45,55 75,55" fill="url(#snowPeakGrad)"/>
+              <polygon points="340,35 325,50 355,50" fill="url(#snowPeakGrad)"/>
 
-              <!-- Rolling Meadow Terraces -->
-              <path d="M 0 180 Q 120 150 220 185 T 400 170 L 400 480 L 0 480 Z" fill="#133126" opacity="0.9"/>
-              <path d="M 0 240 Q 150 210 270 245 T 400 230 L 400 480 L 0 480 Z" fill="#1b4132"/>
-              <path d="M 0 310 Q 110 280 230 315 T 400 300 L 400 480 L 0 480 Z" fill="#16392b"/>
+              <!-- Rolling Valleys -->
+              <path d="M 0 95 Q 120 75 220 95 T 400 90 L 400 240 L 0 240 Z" fill="#133126" opacity="0.95"/>
+              <path d="M 0 135 Q 150 115 270 138 T 400 130 L 400 240 L 0 240 Z" fill="#183d2f"/>
 
-              <!-- Winding Kurdening River -->
-              <path d="M 215 95 Q 230 160 190 220 T 170 330 Q 150 390 190 480" fill="none" stroke="url(#riverGrad)" stroke-width="7" stroke-linecap="round" filter="url(#glowEffect)"/>
-              <path d="M 215 95 Q 230 160 190 220 T 170 330 Q 150 390 190 480" fill="none" stroke="#e0f7fa" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,6" opacity="0.75"/>
+              <!-- Winding River -->
+              <path d="M 200 48 Q 220 85 180 120 T 160 180 Q 140 210 180 240" fill="none" stroke="url(#riverGrad)" stroke-width="6" stroke-linecap="round" filter="url(#glowEffect)"/>
+              <path d="M 200 48 Q 220 85 180 120 T 160 180 Q 140 210 180 240" fill="none" stroke="#e0f7fa" stroke-width="2" stroke-linecap="round" stroke-dasharray="3,5" opacity="0.75"/>
 
-              <!-- Pine Tree Silhouettes (Spruce Forest Groups) -->
-              <!-- Cluster Left -->
+              <!-- Forest Silhouettes -->
               <g fill="#0b241a" opacity="0.85">
-                <polygon points="40,210 32,235 48,235"/>
-                <polygon points="55,200 46,230 64,230"/>
-                <polygon points="70,215 63,240 77,240"/>
-                <polygon points="50,225 40,255 60,255"/>
-                <polygon points="65,230 57,258 73,258"/>
-              </g>
-              <!-- Cluster Right -->
-              <g fill="#0b241a" opacity="0.85">
-                <polygon points="320,180 312,205 328,205"/>
-                <polygon points="340,170 330,200 350,200"/>
-                <polygon points="360,185 352,210 368,210"/>
-                <polygon points="330,220 320,248 340,248"/>
-                <polygon points="350,215 342,245 358,245"/>
-              </g>
-              <!-- Middle Valley Spruce -->
-              <g fill="#0f2b20">
-                <polygon points="120,340 110,375 130,375"/>
-                <polygon points="105,355 96,388 114,388"/>
-                <polygon points="260,320 250,355 270,355"/>
-                <polygon points="280,335 272,365 288,365"/>
+                <polygon points="35,115 28,135 42,135"/>
+                <polygon points="50,105 42,130 58,130"/>
+                <polygon points="65,118 58,138 72,138"/>
+                <polygon points="330,100 322,120 338,120"/>
+                <polygon points="350,92 342,118 358,118"/>
+                <polygon points="368,105 360,128 376,128"/>
               </g>
 
-              <!-- Kazak Traditional Yurts Decorative Icons -->
-              <g transform="translate(90, 240) scale(0.6)" fill="#fdfbf7">
+              <!-- Kazakh Yurts -->
+              <g transform="translate(85, 140) scale(0.45)" fill="#fdfbf7">
                 <path d="M 0 25 Q 25 0 50 25 L 50 45 L 0 45 Z" fill="#eae4d3"/>
                 <rect x="20" y="30" width="10" height="15" fill="#a4522a"/>
-                <line x1="25" y1="2" x2="25" y2="25" stroke="#a4522a" stroke-width="2"/>
               </g>
-              <g transform="translate(265, 385) scale(0.7)" fill="#fdfbf7">
+              <g transform="translate(285, 175) scale(0.45)" fill="#fdfbf7">
                 <path d="M 0 25 Q 25 0 50 25 L 50 45 L 0 45 Z" fill="#eae4d3"/>
                 <rect x="20" y="30" width="10" height="15" fill="#a4522a"/>
               </g>
 
-              <!-- Grazing Sheep / Cattle dots -->
-              <circle cx="120" cy="275" r="3" fill="#ffffff" opacity="0.8"/>
-              <circle cx="128" cy="278" r="2.5" fill="#ffffff" opacity="0.8"/>
-              <circle cx="135" cy="273" r="2.5" fill="#ffffff" opacity="0.8"/>
-              <circle cx="280" cy="270" r="3" fill="#edd6b8" opacity="0.8"/>
-              <circle cx="290" cy="274" r="2.5" fill="#ffffff" opacity="0.8"/>
-
-              <!-- Scenic Spot Hotspots (Interactive Buttons inside SVG) -->
+              <!-- Spots Hotspots -->
               <!-- Spot 1: 喀峰大本营 -->
-              <g class="map-pin" data-spot="kabanbay" transform="translate(210, 80)">
-                <circle class="pin-radar" r="16"/>
-                <circle class="pin-core" r="8"/>
-                <circle class="pin-dot" r="3"/>
-                <text x="0" y="-14" class="pin-label" text-anchor="middle">喀峰大本营</text>
+              <g class="map-pin" data-spot="kabanbay" transform="translate(200, 38)">
+                <circle class="pin-radar" r="14"/>
+                <circle class="pin-core" r="7"/>
+                <circle class="pin-dot" r="2.5"/>
+                <text x="0" y="-12" class="pin-label" text-anchor="middle">喀峰大本营</text>
               </g>
 
               <!-- Spot 2: 齐梦德观景台 -->
-              <g class="map-pin active" data-spot="qimengde" transform="translate(110, 165)">
-                <circle class="pin-radar" r="18"/>
-                <circle class="pin-core" r="9"/>
-                <circle class="pin-dot" r="4"/>
-                <text x="0" y="-15" class="pin-label highlight" text-anchor="middle">齐梦德观景台 ★</text>
+              <g class="map-pin active" data-spot="qimengde" transform="translate(100, 92)">
+                <circle class="pin-radar" r="16"/>
+                <circle class="pin-core" r="8"/>
+                <circle class="pin-dot" r="3"/>
+                <text x="0" y="-13" class="pin-label highlight" text-anchor="middle">齐梦德 ★</text>
               </g>
 
               <!-- Spot 3: 云杉王 -->
-              <g class="map-pin" data-spot="spruce-king" transform="translate(285, 185)">
-                <circle class="pin-radar" r="16"/>
-                <circle class="pin-core" r="8"/>
-                <circle class="pin-dot" r="3"/>
-                <text x="0" y="-14" class="pin-label" text-anchor="middle">千年云杉王</text>
+              <g class="map-pin" data-spot="spruce-king" transform="translate(295, 105)">
+                <circle class="pin-radar" r="14"/>
+                <circle class="pin-core" r="7"/>
+                <circle class="pin-dot" r="2.5"/>
+                <text x="0" y="-12" class="pin-label" text-anchor="middle">云杉王</text>
               </g>
 
               <!-- Spot 4: 云上草原 -->
-              <g class="map-pin" data-spot="cloud-meadow" transform="translate(85, 290)">
-                <circle class="pin-radar" r="16"/>
-                <circle class="pin-core" r="8"/>
-                <circle class="pin-dot" r="3"/>
-                <text x="0" y="-14" class="pin-label" text-anchor="middle">云上草原</text>
+              <g class="map-pin" data-spot="cloud-meadow" transform="translate(68, 160)">
+                <circle class="pin-radar" r="14"/>
+                <circle class="pin-core" r="7"/>
+                <circle class="pin-dot" r="2.5"/>
+                <text x="0" y="-12" class="pin-label" text-anchor="middle">云上草原</text>
               </g>
 
               <!-- Spot 5: 十里画廊 -->
-              <g class="map-pin" data-spot="ten-li-gallery" transform="translate(225, 275)">
-                <circle class="pin-radar" r="16"/>
-                <circle class="pin-core" r="8"/>
-                <circle class="pin-dot" r="3"/>
-                <text x="0" y="-14" class="pin-label" text-anchor="middle">十里画廊</text>
+              <g class="map-pin" data-spot="ten-li-gallery" transform="translate(215, 145)">
+                <circle class="pin-radar" r="14"/>
+                <circle class="pin-core" r="7"/>
+                <circle class="pin-dot" r="2.5"/>
+                <text x="0" y="-12" class="pin-label" text-anchor="middle">十里画廊</text>
               </g>
 
               <!-- Spot 6: 阿尤赛观景台 -->
-              <g class="map-pin" data-spot="ayousai" transform="translate(195, 395)">
-                <circle class="pin-radar" r="16"/>
-                <circle class="pin-core" r="8"/>
-                <circle class="pin-dot" r="3"/>
-                <text x="0" y="-14" class="pin-label" text-anchor="middle">阿尤赛观景台</text>
+              <g class="map-pin" data-spot="ayousai" transform="translate(185, 205)">
+                <circle class="pin-radar" r="14"/>
+                <circle class="pin-core" r="7"/>
+                <circle class="pin-dot" r="2.5"/>
+                <text x="0" y="-12" class="pin-label" text-anchor="middle">阿尤赛</text>
               </g>
             </svg>
           </div>
 
-          <!-- Bottom Card: Current Selected Spot Details (Carousel / Swiper capable) -->
-          <div class="spot-card-modal" id="spotDetailCard">
-            <div class="spot-card-handle"></div>
-            <div class="spot-media-wrap">
-              <div class="spot-img" id="spotImg" style="background-image: url('assets/qimengde.jpg');"></div>
-              <div class="spot-badge" id="spotTag">经典必打卡</div>
-              <div class="spot-nav-arrows">
-                <button class="spot-arrow-btn" id="spotPrevBtn" aria-label="上一个景点">&lsaquo;</button>
-                <button class="spot-arrow-btn" id="spotNextBtn" aria-label="下一个景点">&rsaquo;</button>
+          <!-- Bottom Card: Large Format Scenic Viewport with Strong Left/Right Navigation -->
+          <div class="spot-card-large" id="spotDetailCard">
+            <!-- Top bar with guidance -->
+            <div class="spot-card-topbar">
+              <span class="spot-badge-pill" id="spotTag">经典必打卡</span>
+              <div class="spot-swipe-pill">
+                <span class="pulse-arrow left">&larr;</span>
+                <span>左右滑动切换景点</span>
+                <span class="pulse-arrow right">&rarr;</span>
+              </div>
+              <span class="spot-page-counter" id="spotCounter">01 / 06</span>
+            </div>
+
+            <!-- Big Scenic Media Viewport (Full width, ~185px high) -->
+            <div class="spot-media-viewport" id="spotMediaBox">
+              <div class="spot-img-large" id="spotImg" style="background-image: url('assets/qimengde.jpg');"></div>
+              <div class="spot-img-gradient"></div>
+
+              <!-- Huge Glowing Left/Right Buttons -->
+              <button class="huge-nav-btn prev" id="spotPrevBtn" aria-label="上一个景点" title="上一个景点">
+                <span class="nav-btn-icon">&#10094;</span>
+              </button>
+              <button class="huge-nav-btn next" id="spotNextBtn" aria-label="下一个景点" title="下一个景点">
+                <span class="nav-btn-icon">&#10095;</span>
+              </button>
+
+              <!-- Overlay Title & Elevation inside image bottom -->
+              <div class="spot-overlay-info">
+                <div class="spot-title-elevation">
+                  <h3 class="spot-name" id="spotName">齐梦德观景台</h3>
+                  <span class="spot-elevation" id="spotElevation">海拔 2150m</span>
+                </div>
+                <!-- 6 Progress Dots -->
+                <div class="spot-dots-rail" id="spotDotsRail">
+                  <span class="dot-item active" data-idx="0"></span>
+                  <span class="dot-item" data-idx="1"></span>
+                  <span class="dot-item" data-idx="2"></span>
+                  <span class="dot-item" data-idx="3"></span>
+                  <span class="dot-item" data-idx="4"></span>
+                  <span class="dot-item" data-idx="5"></span>
+                </div>
               </div>
             </div>
-            <div class="spot-info-wrap">
-              <div class="spot-header-row">
-                <h3 class="spot-name" id="spotName">齐梦德观景台</h3>
-                <span class="spot-elevation" id="spotElevation">海拔 2150m</span>
-              </div>
+
+            <!-- Detailed Description & Tags -->
+            <div class="spot-body-info">
               <p class="spot-desc" id="spotDesc">
                 库尔德宁最为震撼的“神级机位”。站在此处，雪山冰川、墨绿云杉林海、波浪起伏的草甸毡房与晨昏云海同框，是摄影师与游客向往的梦幻胜景。
               </p>
-              <div class="spot-tips">
+              <div class="spot-tips" id="spotTips">
                 <span class="tip-tag">📸 晨曦出片机位</span>
                 <span class="tip-tag">🚶 适合木栈道徒步</span>
                 <span class="tip-tag">☁️ 观常态化云海</span>
@@ -415,7 +420,7 @@
             <div class="section-divider">
               <span class="divider-icon">🍂</span>
             </div>
-            <p class="section-lead" data-i18n="p4.lead">从漫山野花到水墨雪国，领略天山秘境在365天里的无尽流转</p>
+            <p class="section-lead" data-i18n="p4.lead">从漫山野花到水墨雪国，点击或左右滑动大图穿越四季流转</p>
           </header>
 
           <!-- Season Selector Tabs -->
@@ -442,26 +447,41 @@
             </button>
           </div>
 
-          <!-- Season Card Display -->
+          <!-- Strong Left/Right Swipe Guidance Pill -->
+          <div class="seasons-swipe-hint-bar">
+            <span class="pulse-hand">👈</span>
+            <span class="hint-text">左右滑动大图 穿越天山四季时序</span>
+            <span class="pulse-hand">👉</span>
+          </div>
+
+          <!-- Season Card Display with Large Image & Huge Left/Right Nav Buttons -->
           <div class="season-showcase-card" id="seasonCard">
-            <div class="season-visual-banner" id="seasonBanner">
-              <div class="season-color-badge" id="seasonPalette">#春天嫩青 & 野杏粉</div>
+            <div class="season-visual-banner-large" id="seasonBanner">
+              <div class="season-color-badge" id="seasonPalette">#雨后青翠 & 谷雾白</div>
+
+              <!-- Big Floating Season Navigation Buttons -->
+              <button class="season-huge-nav-btn prev" id="seasonPrevBtn" aria-label="上一季节" title="上一季节">
+                <span>&#10094;</span>
+              </button>
+              <button class="season-huge-nav-btn next" id="seasonNextBtn" aria-label="下一季节" title="下一季节">
+                <span>&#10095;</span>
+              </button>
             </div>
             <div class="season-detail-body">
-              <h3 class="season-headline" id="seasonHeadline">春醒天山 · 芳华初绽</h3>
-              <p class="season-poem" id="seasonPoem">“冰雪消融谷水潺，顶冰花开满山峦；漫山野杏云杉伴，牧人初归绿野还。”</p>
+              <h3 class="season-headline" id="seasonHeadline">春烟薄雾 · 幽谷仙境</h3>
+              <p class="season-poem" id="seasonPoem">“冰消泉涌白云深，云杉黛色染层林；雾锁横谷毡房隐，牧歌轻起向春茵。”</p>
               <div class="season-traits-list" id="seasonTraits">
                 <div class="trait-item">
                   <span class="trait-bullet">✦</span>
-                  <span class="trait-txt"><strong>特色景观：</strong>天山顶冰花破雪盛放，野杏花、金莲花次第铺满河谷</span>
+                  <span class="trait-txt"><strong>特色景观：</strong>山间云雾在雪岭云杉梢头如丝绢流动，毡房骏马点缀湿润草甸</span>
                 </div>
                 <div class="trait-item">
                   <span class="trait-bullet">✦</span>
-                  <span class="trait-txt"><strong>气温适宜：</strong>12℃ ~ 22℃，清新微凉，适合初春探秘与摄影研学</span>
+                  <span class="trait-txt"><strong>气候体感：</strong>12℃ ~ 20℃，清新湿润，空气中弥漫雪岭云杉天然负氧离子</span>
                 </div>
                 <div class="trait-item">
                   <span class="trait-bullet">✦</span>
-                  <span class="trait-txt"><strong>不可错过：</strong>库尔德宁河畔冰川融水初涨，草原初青的宁静静谧</span>
+                  <span class="trait-txt"><strong>不可错过：</strong>清晨漫步观赏薄雾穿透森林、若隐若现的天山仙境</span>
                 </div>
               </div>
             </div>
@@ -581,7 +601,7 @@
               </div>
               <div class="accordion-body">
                 <p><strong>到达距离：</strong>巩留县城至景区东门约60公里（车程约1-1.5小时）；伊宁市至库尔德宁约150公里（车程约2.5-3小时）。</p>
-                <p><strong>自驾/区间车：</strong>景区支持自驾车进入（需提前在文旅平台预约自驾票，每日限额），亦可乘坐观光区间车。</p>
+                <p><strong>自驾/区间车：</strong>景区支持自驾车进入（需提前在景区官方平台预约自驾票，每日限额），亦可乘坐观光区间车。</p>
                 <div class="alert-box">
                   <strong>⚠️ 单向环线提醒：</strong>景区内道路狭窄风景奇险，旺季实行单向通行交通管制（东门进 - 中区 - 西门出），请务必遵从路标指示驾驶。
                 </div>
@@ -701,8 +721,11 @@
           </div>
 
           <!-- Biodiversity Wild Species Cards -->
-          <h3 class="sub-block-title" data-i18n="p7.speciesTitle">库尔德宁珍稀野生动植物名录</h3>
-          <div class="species-grid">
+          <div class="species-title-row">
+            <h3 class="sub-block-title" data-i18n="p7.speciesTitle">库尔德宁珍稀野生动植物名录</h3>
+            <span class="species-swipe-tip">👈 左右横滑发现更多 👉</span>
+          </div>
+          <div class="species-grid-scrollable">
             <div class="species-card">
               <div class="species-avatar">🐆</div>
               <div class="species-name">雪豹 (Snow Leopard)</div>
@@ -855,7 +878,6 @@
                   <rect x="10" y="64" width="26" height="26" fill="#133e2b"/>
                   <rect x="14" y="68" width="18" height="18" fill="#ffffff"/>
                   <rect x="18" y="72" width="10" height="10" fill="#133e2b"/>
-                  <!-- random matrix dots for qr look -->
                   <rect x="42" y="12" width="6" height="6" fill="#133e2b"/>
                   <rect x="52" y="18" width="6" height="6" fill="#133e2b"/>
                   <rect x="44" y="28" width="6" height="6" fill="#133e2b"/>
@@ -871,14 +893,14 @@
                 </svg>
               </div>
               <div class="qr-text">
-                <strong>扫码关注“巩留文旅”</strong>
+                <strong>扫码关注“天山库尔德宁”</strong>
                 <small>获取最新自驾预约、门票与天气实况</small>
               </div>
             </div>
 
             <div class="footer-meta">
               <p>咨询电话：0999-5622088 ｜ 景区地址：新疆伊犁州巩留县库尔德宁镇</p>
-              <p class="copyright">Copyright © 2026 巩留县文旅局 · 库尔德宁景区 版权所有</p>
+              <p class="copyright">Copyright © 2026 新疆·巩留 库尔德宁景区 版权所有</p>
             </div>
 
             <button class="back-to-top-btn" id="backToTopBtn">

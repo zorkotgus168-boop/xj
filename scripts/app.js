@@ -39,7 +39,7 @@
       'menu.p5': '游牧古韵·哈萨克人文风情',
       'menu.p6': '实用手册·自驾食宿攻略',
       'menu.p7': '自然研学·雪岭云杉水库基因',
-      'menu.p8': '相约天山·文旅打卡与分享',
+      'menu.p8': '相约天山·互动打卡与分享',
       
       'p1.heritage': '世界自然遗产 · 新疆天山核心区 ｜ 国家4A级景区',
       'p1.subline': '天山绿谷 · 云杉秘境',
@@ -264,75 +264,75 @@
   // ================= Seasons Data =================
   const seasonsData = {
     spring: {
-      headlineZh: '春醒天山 · 芳华初绽',
-      headlineEn: 'Spring Awakening · Alpine Blossoms',
-      poemZh: '“冰雪消融谷水潺，顶冰花开满山峦；漫山野杏云杉伴，牧人初归绿野还。”',
-      poemEn: '"Melting snow feeds the roaring brooks, ice-flowers pierce the snowy nooks; apricot blossoms greet the firs, as nomads bring their gentle herds."',
-      palette: '#春绿 & 野花金黄',
+      headlineZh: '春烟薄雾 · 幽谷仙境',
+      headlineEn: 'Misty Spring · Sanctuary Awakening',
+      poemZh: '“冰消泉涌白云深，云杉黛色染层林；雾锁横谷毡房隐，牧歌轻起向春茵。”',
+      poemEn: '"Clouds veil the spruce as mountain brooks flow, misty valley shelters nomad yurts below; spring grass awakens in emerald sheen, echoing songs across hills serene."',
+      palette: '#雨后青翠 & 谷雾白',
       img: 'assets/spring.jpg',
       traitsZh: [
-        '特色景观：天山顶冰花破雪盛放，野杏花、金莲花次第铺满河谷',
-        '气候体感：12℃ ~ 22℃，清新微凉，适合初春探秘与摄影研学',
-        '不可错过：库尔德宁河畔冰川融水初涨，草原初青的宁静'
+        '特色景观：山间云雾在雪岭云杉梢头如丝绢流动，毡房骏马点缀湿润草甸',
+        '气候体感：12℃ ~ 20℃，清新湿润，空气中弥漫雪岭云杉天然负氧离子',
+        '不可错过：清晨漫步观赏薄雾穿透森林、若隐若现的天山仙境'
       ],
       traitsEn: [
-        'Key Feature: Wild crocuses break through melting snow, covering valleys in gold & violet',
-        'Temperature: 12°C - 22°C, refreshing spring breeze ideal for botany study',
-        'Must-See: Swelling glacial streams and peaceful nomad spring camps'
+        'Key Feature: Silky mountain mists drift through spruce treetops and nomad yurts',
+        'Temperature: 12°C - 20°C, fresh air enriched with negative oxygen ions',
+        'Must-See: Magical morning mist weaving through the spruce forest'
       ]
     },
     summer: {
-      headlineZh: '夏日苍翠 · 云杉瀚海',
-      headlineEn: 'Emerald Summer · Ocean of Spruce',
-      poemZh: '“浓荫蔽日千峰翠，十里溪流泛碧漪；天山纵马云端走，清凉胜地忘暑归。”',
-      poemEn: '"Towering spruces shade a thousand peaks, crystal streams sing through the creeks; ride across meadows above the skies, cool breezes soothe weary eyes."',
-      palette: '#浓郁云杉墨绿 & 碧水青',
+      headlineZh: '夏日晴空 · 绿野雪峰',
+      headlineEn: 'Sunny Summer · Emerald & Snow Peaks',
+      poemZh: '“雪峰晴映蔚蓝天，万顷云杉锁翠烟；绿毯如茵毡房聚，清凉夏日胜神仙。”',
+      poemEn: '"Snow-capped peaks shine against skies so blue, dense fir forest greets the morning dew; white yurts dot the emerald meadow floor, summer haven forever to adore."',
+      palette: '#晴空湛蓝 & 云杉翠绿',
       img: 'assets/summer.jpg',
       traitsZh: [
-        '特色景观：雪岭云杉郁郁葱葱，万亩高山草甸绿意波澜壮阔',
-        '天然避暑：夏季平均气温仅20℃~25℃，空气负氧离子含量高',
-        '游牧风情：牧民大转场完成，白毡房星罗棋布，赛马叼羊欢歌笑语'
+        '特色景观：远处喀班巴依雪峰与眼前万顷云杉、白毡房构筑经典伊犁夏景',
+        '避暑天堂：白天平均22℃，阳光透亮纯净，夜晚繁星银河肉眼清晰可见',
+        '游牧风貌：毡房升起袅袅炊烟，牛羊马匹在无垠高山草甸惬意漫步'
       ],
       traitsEn: [
-        'Key Feature: Deep evergreen canopy and endless emerald undulating meadows',
-        'Natural Haven: Refreshing summer avg 20°C - 25°C, negative oxygen ion haven',
-        'Culture: Nomads settle in white yurts with horse racing and sweet butter tea'
+        'Key Feature: Distant snow peaks, evergreen spruces, and white yurts create iconic summer vistas',
+        'Cool Haven: Avg 22°C daytime temperature with crystal-clear skies and starry nights',
+        'Nomadic Life: Gentle smoke rises from yurts while horses graze across rolling green slopes'
       ]
     },
     autumn: {
-      headlineZh: '金秋绚丽 · 泼墨彩林',
-      headlineEn: 'Golden Autumn · Fiery Palette',
-      poemZh: '“秋染群山万树红，霜林尽醉画屏中；云杉挺拔凝青黛，落日峰头照晚风。”',
-      poemEn: '"Frost tints the birch in crimson and gold, mountain slopes a masterpiece to behold; evergreen spruces stand tall and proud, sunset flames upon the peak and cloud."',
-      palette: '#秋叶金红 & 云杉青黛',
+      headlineZh: '秋高气爽 · 草原甘甜',
+      headlineEn: 'Golden Autumn · Mountain Harvest',
+      poemZh: '“天高气爽自驾行，手捧甘甜望远峰；盘山天路蜿蜒过，一谷秋实满目晴。”',
+      poemEn: '"Brisk alpine breeze on the winding road, sweet melon in hand where memories glow; azure skies over endless golden green, the sweetest autumn ever seen."',
+      palette: '#西瓜蜜红 & 天高云淡',
       img: 'assets/autumn.jpg',
       traitsZh: [
-        '特色景观：野果林、欧洲山杨与金黄桦木与常绿云杉交相辉映，绚丽壮美',
-        '摄影黄金期：每年9月中旬至10月上旬，光影柔和，晨雾缭绕',
-        '物产丰饶：野生天山野苹果、野山楂成熟，弥漫诱人清香'
+        '特色风情：秋季自驾盘山天路，在云上草甸手捧沙瓤冰甜的新疆大西瓜',
+        '开阔视野：山高天阔，俯瞰深邃横谷盘山公路与远山连绵树阵',
+        '最佳时节：9月少雨晴好，云卷云舒，昼夜温差适宜深度自驾与露营'
       ],
       traitsEn: [
-        'Key Feature: Wild apples, golden aspens, and green firs paint a colorful tapestry',
-        'Golden Hours: Mid-September to early October with magical morning mists',
-        'Harvest: Fragrant wild mountain apples and berries ripen in valleys'
+        'Key Feature: Self-drive mountain roads and tasting sweet Xinjiang melon above the clouds',
+        'Panoramic View: Overlooking the winding transverse valley routes and rolling ridges',
+        'Golden Travel: Crisp autumn weather, dramatic cloudscapes, and pleasant scenic driving'
       ]
     },
     winter: {
-      headlineZh: '银装素裹 · 水墨雪国',
-      headlineEn: 'Winter Silence · Ink-Wash Realm',
-      poemZh: '“寒山一夜飞琼屑，云杉古木挂雾凇；玉带冰河静卧雪，喀峰傲立立苍穹。”',
-      poemEn: '"Overnight snowfall turns rocks to jade, rime frost hangs where spruces cascade; frozen river lies asleep below, Kabanbay peak reigns in silent glow."',
-      palette: '#冰雪纯白 & 雾凇墨韵',
+      headlineZh: '水墨雪原 · 踏雪神驹',
+      headlineEn: 'Winter Silence · Steed on Snow',
+      poemZh: '“素雪千重覆万松，雕鞍骏马立苍穹；冰峰寂静冬阳暖，水墨天山意境浓。”',
+      poemEn: '"Pristine white snow blankets pine and hill, a noble steed stands proud and still; winter sun warms the frozen air, ink-wash Tian Shan beyond compare."',
+      palette: '#纯净雪白 & 蓝天暖阳',
       img: 'assets/winter.jpg',
       traitsZh: [
-        '特色景观：千树万树雾凇挂枝，库尔德宁河半凝半冻，宛如水墨中国画',
-        '极致静谧：游人稀少，可聆听雪落云杉针叶的微响，宛若世外桃源',
-        '冬日自驾：四驱雪地胎自驾观赏天山雪峰晨曦日照金山'
+        '特色景观：哈萨克俊美骏马佩鞍傲立雪原，深蓝晴空与雪岭云杉相映生辉',
+        '冬游体验：体验雪地骑马穿越雪岭云杉原始森林，拍摄绝美冬景大片',
+        '天地至静：避开喧嚣，领略库尔德宁最纯净震撼的冬日冰雪秘境'
       ],
       traitsEn: [
-        'Key Feature: Pine branches laden with rime, steaming streams amid deep snow',
-        'Serenity: Pristine stillness where only the whisper of falling snow is heard',
-        'Winter Drive: 4WD snow route witnessing golden morning light on snowy summits'
+        'Key Feature: Elegant saddled horse standing tall on pristine snow under deep blue skies',
+        'Winter Ride: Ride through snowy spruce forests for unforgettable photography',
+        'Absolute Peace: Escape the crowds to experience the ultimate tranquility of Tian Shan winter'
       ]
     }
   };
@@ -352,14 +352,19 @@
     drawerMenuItems: document.querySelectorAll('.drawer-menu li'),
     startExploreBtn: document.getElementById('startExploreBtn'),
     cloudsCanvas: document.getElementById('cloudsCanvas'),
+    heroBgVideo: document.getElementById('heroBgVideo'),
     
     // Page 3 Map & Spot elements
     mapPins: document.querySelectorAll('.map-pin'),
+    spotMediaBox: document.getElementById('spotMediaBox'),
     spotImg: document.getElementById('spotImg'),
     spotTag: document.getElementById('spotTag'),
     spotName: document.getElementById('spotName'),
     spotElevation: document.getElementById('spotElevation'),
     spotDesc: document.getElementById('spotDesc'),
+    spotTips: document.getElementById('spotTips'),
+    spotCounter: document.getElementById('spotCounter'),
+    spotDotsRail: document.getElementById('spotDotsRail'),
     spotPrevBtn: document.getElementById('spotPrevBtn'),
     spotNextBtn: document.getElementById('spotNextBtn'),
 
@@ -370,6 +375,8 @@
     seasonHeadline: document.getElementById('seasonHeadline'),
     seasonPoem: document.getElementById('seasonPoem'),
     seasonTraits: document.getElementById('seasonTraits'),
+    seasonPrevBtn: document.getElementById('seasonPrevBtn'),
+    seasonNextBtn: document.getElementById('seasonNextBtn'),
 
     // Page 6 Accordion elements
     accordionHeaders: document.querySelectorAll('.accordion-header'),
@@ -414,6 +421,15 @@
     state.isSliding = true;
     const prevPage = state.currentPage;
     state.currentPage = targetIndex;
+
+    // Manage cover background video playback to save mobile memory/battery
+    if (dom.heroBgVideo) {
+      if (targetIndex === 0) {
+        dom.heroBgVideo.play().catch(() => {});
+      } else {
+        dom.heroBgVideo.pause();
+      }
+    }
 
     // Update classes on pages
     dom.pages.forEach((page, idx) => {
@@ -767,14 +783,38 @@
       pin.classList.toggle('active', pinId === spot.id);
     });
 
-    // Update details
+    // Update details & large picture with subtle zoom effect
+    dom.spotImg.style.transform = 'scale(1.06)';
     dom.spotImg.style.backgroundImage = `url('${spot.img}')`;
+    setTimeout(() => {
+      dom.spotImg.style.transform = 'scale(1)';
+    }, 150);
+
     dom.spotTag.textContent = spot.badge;
     dom.spotName.textContent = state.currentLang === 'zh' ? spot.nameZh : spot.nameEn;
     dom.spotElevation.textContent = spot.elevation;
     dom.spotDesc.textContent = state.currentLang === 'zh' ? spot.descZh : spot.descEn;
+
+    // Update progress counter (e.g. 02 / 06)
+    if (dom.spotCounter) {
+      dom.spotCounter.textContent = `${String(index + 1).padStart(2, '0')} / 06`;
+    }
+
+    // Update 6 progress dots
+    if (dom.spotDotsRail) {
+      const dots = dom.spotDotsRail.querySelectorAll('.dot-item');
+      dots.forEach((dot, dIdx) => {
+        dot.classList.toggle('active', dIdx === index);
+      });
+    }
+
+    // Update tips tags
+    if (dom.spotTips && spot.tips) {
+      dom.spotTips.innerHTML = spot.tips.map(t => `<span class="tip-tag">${t}</span>`).join('');
+    }
   }
 
+  // Map pin clicks
   dom.mapPins.forEach((pin) => {
     pin.addEventListener('click', () => {
       const spotId = pin.getAttribute('data-spot');
@@ -783,18 +823,61 @@
     });
   });
 
+  // Huge left/right buttons for spots
   if (dom.spotPrevBtn && dom.spotNextBtn) {
-    dom.spotPrevBtn.addEventListener('click', () => {
+    dom.spotPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const prevIdx = (state.currentSpotIdx - 1 + spotsData.length) % spotsData.length;
       renderSpot(prevIdx);
     });
-    dom.spotNextBtn.addEventListener('click', () => {
+    dom.spotNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const nextIdx = (state.currentSpotIdx + 1) % spotsData.length;
       renderSpot(nextIdx);
     });
   }
 
+  // Dots direct clicks
+  if (dom.spotDotsRail) {
+    dom.spotDotsRail.querySelectorAll('.dot-item').forEach((dot, dIdx) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        renderSpot(dIdx);
+      });
+    });
+  }
+
+  // Touch Swipe Gesture for Page 3 Spot Card (Left / Right swipe)
+  if (dom.spotMediaBox) {
+    let spotTouchStartX = 0;
+    let spotTouchStartY = 0;
+
+    dom.spotMediaBox.addEventListener('touchstart', (e) => {
+      spotTouchStartX = e.touches[0].clientX;
+      spotTouchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    dom.spotMediaBox.addEventListener('touchend', (e) => {
+      const deltaX = e.changedTouches[0].clientX - spotTouchStartX;
+      const deltaY = e.changedTouches[0].clientY - spotTouchStartY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 35) {
+        if (deltaX < 0) {
+          // Swipe left -> next spot
+          const nextIdx = (state.currentSpotIdx + 1) % spotsData.length;
+          renderSpot(nextIdx);
+        } else {
+          // Swipe right -> prev spot
+          const prevIdx = (state.currentSpotIdx - 1 + spotsData.length) % spotsData.length;
+          renderSpot(prevIdx);
+        }
+      }
+    }, { passive: true });
+  }
+
   // ================= Page 4: Four Seasons Showcase =================
+  const seasonKeys = ['spring', 'summer', 'autumn', 'winter'];
+
   function renderSeason(seasonKey) {
     const data = seasonsData[seasonKey];
     if (!data) return;
@@ -821,6 +904,52 @@
       renderSeason(season);
     });
   });
+
+  // Huge left/right buttons for seasons
+  if (dom.seasonPrevBtn && dom.seasonNextBtn) {
+    dom.seasonPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const curIdx = seasonKeys.indexOf(state.currentSeason);
+      const prevIdx = (curIdx - 1 + seasonKeys.length) % seasonKeys.length;
+      renderSeason(seasonKeys[prevIdx]);
+    });
+    dom.seasonNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const curIdx = seasonKeys.indexOf(state.currentSeason);
+      const nextIdx = (curIdx + 1) % seasonKeys.length;
+      renderSeason(seasonKeys[nextIdx]);
+    });
+  }
+
+  // Touch Swipe Gesture for Page 4 Season Banner
+  if (dom.seasonBanner) {
+    let seasonTouchStartX = 0;
+    let seasonTouchStartY = 0;
+
+    dom.seasonBanner.addEventListener('touchstart', (e) => {
+      seasonTouchStartX = e.touches[0].clientX;
+      seasonTouchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    dom.seasonBanner.addEventListener('touchend', (e) => {
+      const deltaX = e.changedTouches[0].clientX - seasonTouchStartX;
+      const deltaY = e.changedTouches[0].clientY - seasonTouchStartY;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 35) {
+        const curIdx = seasonKeys.indexOf(state.currentSeason);
+        if (deltaX < 0) {
+          // Swipe left -> next season
+          const nextIdx = (curIdx + 1) % seasonKeys.length;
+          renderSeason(seasonKeys[nextIdx]);
+        } else {
+          // Swipe right -> prev season
+          const prevIdx = (curIdx - 1 + seasonKeys.length) % seasonKeys.length;
+          renderSeason(seasonKeys[prevIdx]);
+        }
+      }
+    }, { passive: true });
+  }
+
   renderSeason('spring');
 
   // ================= Page 6: Guide Accordion =================
@@ -1019,7 +1148,7 @@
       // Bottom Signature
       ctx.fillStyle = '#7a8c82';
       ctx.font = '13px sans-serif';
-      ctx.fillText('邀请人：巩留县文化体育广播电视和旅游局', 70, 715);
+      ctx.fillText('邀请人：天山绿谷·库尔德宁景区管委会', 70, 715);
       ctx.fillText('官方认证：世界自然遗产 · 国家级雪岭云杉自然保护区', 70, 738);
 
       // Render into dialog
@@ -1099,5 +1228,14 @@
 
   // Initial load spot
   renderSpot(0);
+
+  // Ensure cover video autoplays or activates on first touch
+  const playCoverVideo = () => {
+    if (dom.heroBgVideo && dom.heroBgVideo.paused) {
+      dom.heroBgVideo.play().catch(() => {});
+    }
+  };
+  window.addEventListener('click', playCoverVideo, { once: true });
+  window.addEventListener('touchstart', playCoverVideo, { once: true });
 
 })();
