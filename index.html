@@ -511,8 +511,14 @@
 
           <div class="culture-cards-stack">
             <!-- Culture Item 1 -->
-            <div class="culture-card">
-              <div class="culture-badge">草原音韵</div>
+            <div class="culture-card" data-culture-id="dombra">
+              <div class="culture-media-header">
+                <img src="assets/culture_dombra.jpg" alt="冬不拉与阿肯阿依特斯" class="culture-card-img" loading="lazy">
+                <div class="culture-badge">草原音韵 · 非遗</div>
+                <div class="culture-tap-hint">
+                  <span>点击查看详情</span> &rarr;
+                </div>
+              </div>
               <div class="culture-inner">
                 <div class="culture-icon-box">🪕</div>
                 <div class="culture-text">
@@ -525,8 +531,14 @@
             </div>
 
             <!-- Culture Item 2 -->
-            <div class="culture-card">
-              <div class="culture-badge">游牧栖居</div>
+            <div class="culture-card" data-culture-id="yurt">
+              <div class="culture-media-header">
+                <img src="assets/culture_yurt.jpg" alt="白毡房、咸奶茶与手抓肉" class="culture-card-img" loading="lazy">
+                <div class="culture-badge">游牧栖居 · 风味</div>
+                <div class="culture-tap-hint">
+                  <span>点击查看详情</span> &rarr;
+                </div>
+              </div>
               <div class="culture-inner">
                 <div class="culture-icon-box">🏕️</div>
                 <div class="culture-text">
@@ -539,8 +551,14 @@
             </div>
 
             <!-- Culture Item 3 -->
-            <div class="culture-card">
-              <div class="culture-badge">英雄史诗</div>
+            <div class="culture-card" data-culture-id="migration">
+              <div class="culture-media-header">
+                <img src="assets/culture_migration.jpg" alt="喀班巴依英雄传说与壮丽转场" class="culture-card-img" loading="lazy">
+                <div class="culture-badge">英雄史诗 · 迁徙</div>
+                <div class="culture-tap-hint">
+                  <span>点击查看详情</span> &rarr;
+                </div>
+              </div>
               <div class="culture-inner">
                 <div class="culture-icon-box">⚔️</div>
                 <div class="culture-text">
@@ -553,8 +571,14 @@
             </div>
 
             <!-- Culture Item 4 -->
-            <div class="culture-card">
-              <div class="culture-badge">马背豪情</div>
+            <div class="culture-card" data-culture-id="kokpar">
+              <div class="culture-media-header">
+                <img src="assets/culture_kokpar.jpg" alt="赛马叼羊与黑走马舞" class="culture-card-img" loading="lazy">
+                <div class="culture-badge">马背豪情 · 狂欢</div>
+                <div class="culture-tap-hint">
+                  <span>点击查看详情</span> &rarr;
+                </div>
+              </div>
               <div class="culture-inner">
                 <div class="culture-icon-box">🏇</div>
                 <div class="culture-text">
@@ -794,8 +818,8 @@
               </div>
               <div class="postcard-text">
                 <span class="pc-to">To: 亲爱的旅行者</span>
-                <p class="pc-body">“我在雪岭云杉的故乡，喀班巴依雪山之下，愿与你分享这片被大自然眷顾的天山横谷秘境。”</p>
-                <span class="pc-from">来自：巩留库尔德宁国家级自然保护区</span>
+                <p class="pc-body" id="postcardBodyText">“我在雪岭云杉的故乡，喀班巴依雪山之下，愿与你分享这片被大自然眷顾的天山横谷秘境。”</p>
+                <span class="pc-from" id="postcardFromText">来自：巩留库尔德宁国家级自然保护区</span>
               </div>
             </div>
             
@@ -821,17 +845,17 @@
           <!-- Guestbook / Travel Wish Form -->
           <div class="guestbook-section">
             <div class="guestbook-header">
-              <span class="gb-icon">💬</span>
-              <h3 data-i18n="p8.boardTitle">游客互动留言打卡墙</h3>
+              <span class="gb-icon">💌</span>
+              <h3 data-i18n="p8.boardTitle">天山寄语·祝福卡打卡墙</h3>
             </div>
             
             <form class="comment-form" id="commentForm">
               <div class="form-inputs">
                 <input type="text" id="commentAuthor" placeholder="您的昵称 / 来自何地" maxlength="16" required>
-                <textarea id="commentContent" placeholder="写下一句你对库尔德宁的期待或天山寄语..." rows="2" maxlength="80" required></textarea>
+                <textarea id="commentContent" placeholder="写下一句你对库尔德宁的祝福寄语或旅行心愿..." rows="2" maxlength="80" required></textarea>
               </div>
               <button type="submit" class="submit-comment-btn" id="submitCommentBtn">
-                <span data-i18n="p8.submitBtn">提交祝福打卡</span>
+                <span data-i18n="p8.submitBtn">保存并提交祝福卡</span>
               </button>
             </form>
 
@@ -862,45 +886,10 @@
             </div>
           </div>
 
-          <!-- Official QR & Information Footnote -->
+          <!-- Information Footnote -->
           <div class="official-footer">
-            <div class="qr-mockup">
-              <!-- Dynamic Canvas or SVG QR code -->
-              <div class="qr-box">
-                <svg viewBox="0 0 100 100" width="80" height="80">
-                  <rect width="100" height="100" fill="#ffffff" rx="8"/>
-                  <rect x="10" y="10" width="26" height="26" fill="#133e2b"/>
-                  <rect x="14" y="14" width="18" height="18" fill="#ffffff"/>
-                  <rect x="18" y="18" width="10" height="10" fill="#133e2b"/>
-                  <rect x="64" y="10" width="26" height="26" fill="#133e2b"/>
-                  <rect x="68" y="14" width="18" height="18" fill="#ffffff"/>
-                  <rect x="72" y="18" width="10" height="10" fill="#133e2b"/>
-                  <rect x="10" y="64" width="26" height="26" fill="#133e2b"/>
-                  <rect x="14" y="68" width="18" height="18" fill="#ffffff"/>
-                  <rect x="18" y="72" width="10" height="10" fill="#133e2b"/>
-                  <rect x="42" y="12" width="6" height="6" fill="#133e2b"/>
-                  <rect x="52" y="18" width="6" height="6" fill="#133e2b"/>
-                  <rect x="44" y="28" width="6" height="6" fill="#133e2b"/>
-                  <rect x="14" y="44" width="6" height="6" fill="#133e2b"/>
-                  <rect x="24" y="52" width="6" height="6" fill="#133e2b"/>
-                  <rect x="46" y="46" width="8" height="8" fill="#c67d43"/>
-                  <rect x="62" y="44" width="6" height="6" fill="#133e2b"/>
-                  <rect x="74" y="52" width="6" height="6" fill="#133e2b"/>
-                  <rect x="42" y="66" width="6" height="6" fill="#133e2b"/>
-                  <rect x="54" y="74" width="6" height="6" fill="#133e2b"/>
-                  <rect x="72" y="70" width="8" height="8" fill="#133e2b"/>
-                  <rect x="82" y="80" width="8" height="8" fill="#133e2b"/>
-                </svg>
-              </div>
-              <div class="qr-text">
-                <strong>扫码关注“天山库尔德宁”</strong>
-                <small>获取最新自驾预约、门票与天气实况</small>
-              </div>
-            </div>
-
             <div class="footer-meta">
-              <p>咨询电话：0999-5622088 ｜ 景区地址：新疆伊犁州巩留县库尔德宁镇</p>
-              <p class="copyright">Copyright © 2026 新疆·巩留 库尔德宁景区 版权所有</p>
+              <p>景区地址：新疆伊犁州巩留县库尔德宁镇</p>
             </div>
 
             <button class="back-to-top-btn" id="backToTopBtn">
@@ -932,6 +921,26 @@
         </div>
         <div class="dialog-footer">
           <button class="action-btn-pill" id="downloadPostcardBtn">保存到相册</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Culture Detail Dialog -->
+    <div class="culture-modal-mask" id="cultureModalMask">
+      <div class="culture-dialog">
+        <button class="dialog-close-btn" id="closeCultureModalBtn" aria-label="关闭">&times;</button>
+        <div class="culture-dialog-header">
+          <img id="cultureModalImg" src="assets/culture_dombra.jpg" alt="哈萨克文化图景" class="culture-dialog-banner">
+          <div class="culture-dialog-badge" id="cultureModalBadge">国家级非遗</div>
+        </div>
+        <div class="culture-dialog-content">
+          <h3 id="cultureModalTitle" class="culture-dialog-title">冬不拉与阿肯阿依特斯</h3>
+          <p id="cultureModalSubtitle" class="culture-dialog-subtitle">草原灵魂琴声 · 旷野即兴智慧较量</p>
+          <div id="cultureModalDesc" class="culture-dialog-desc"></div>
+          <div class="culture-dialog-fact-box" id="cultureModalFactBox">
+            <h4 id="cultureModalFactLabel">✦ 库尔德宁寻音指南</h4>
+            <p id="cultureModalFactContent">内容</p>
+          </div>
         </div>
       </div>
     </div>

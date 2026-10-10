@@ -24,7 +24,8 @@
     isAudioPlaying: false,
     audioInitialized: false,
     currentSpotIdx: 0,
-    currentSeason: 'spring'
+    currentSeason: 'spring',
+    activeCultureId: null
   };
 
   // ================= I18N Data Dictionary =================
@@ -106,8 +107,8 @@
       'p8.subSlogan': '把心留在云杉深处，把天山清风带回家',
       'p8.shareCard': '生成旅行明信片海报',
       'p8.copyLink': '转发微信朋友圈',
-      'p8.boardTitle': '游客互动留言打卡墙',
-      'p8.submitBtn': '提交祝福打卡'
+      'p8.boardTitle': '天山寄语·祝福卡打卡墙',
+      'p8.submitBtn': '保存并提交祝福卡'
     },
     en: {
       'nav.subtitle': 'NAVIGATION INDEX',
@@ -186,8 +187,8 @@
       'p8.subSlogan': 'Leave your soul in the spruce forest, take the alpine breeze home',
       'p8.shareCard': 'Generate Travel Postcard',
       'p8.copyLink': 'Share to Moments',
-      'p8.boardTitle': 'Travelers Message Board',
-      'p8.submitBtn': 'Submit Travel Wish'
+      'p8.boardTitle': 'Tien Shan Blessing Cards Wall',
+      'p8.submitBtn': 'Save Blessing Card'
     }
   };
 
@@ -378,6 +379,18 @@
     seasonPrevBtn: document.getElementById('seasonPrevBtn'),
     seasonNextBtn: document.getElementById('seasonNextBtn'),
 
+    // Page 5 Culture elements & Modal
+    cultureCards: document.querySelectorAll('.culture-card'),
+    cultureModalMask: document.getElementById('cultureModalMask'),
+    closeCultureModalBtn: document.getElementById('closeCultureModalBtn'),
+    cultureModalImg: document.getElementById('cultureModalImg'),
+    cultureModalBadge: document.getElementById('cultureModalBadge'),
+    cultureModalTitle: document.getElementById('cultureModalTitle'),
+    cultureModalSubtitle: document.getElementById('cultureModalSubtitle'),
+    cultureModalDesc: document.getElementById('cultureModalDesc'),
+    cultureModalFactLabel: document.getElementById('cultureModalFactLabel'),
+    cultureModalFactContent: document.getElementById('cultureModalFactContent'),
+
     // Page 6 Accordion elements
     accordionHeaders: document.querySelectorAll('.accordion-header'),
 
@@ -389,6 +402,8 @@
     genPostcardBtn: document.getElementById('genPostcardBtn'),
     copyLinkBtn: document.getElementById('copyLinkBtn'),
     backToTopBtn: document.getElementById('backToTopBtn'),
+    postcardBodyText: document.getElementById('postcardBodyText'),
+    postcardFromText: document.getElementById('postcardFromText'),
     commentForm: document.getElementById('commentForm'),
     commentAuthor: document.getElementById('commentAuthor'),
     commentContent: document.getElementById('commentContent'),
@@ -952,6 +967,160 @@
 
   renderSeason('spring');
 
+  // ================= Page 5: Kazakh Nomadic Culture Details Modal =================
+  const cultureDetailsData = {
+    dombra: {
+      id: 'dombra',
+      badgeZh: '国家级非物质文化遗产 · 草原之魂',
+      badgeEn: 'National Intangible Heritage · Soul of Steppe',
+      titleZh: '冬不拉与阿肯阿依特斯',
+      titleEn: 'Dombra & Aken Singing Duel',
+      subZh: '两弦尽诉天山风声 · 旷野即兴诗韵对决',
+      subEn: 'Echoes of Tien Shan Wind · Spontaneous Poetic Duels',
+      img: 'assets/culture_dombra.jpg',
+      descZh: [
+        '冬不拉（Dombra）是哈萨克族流传千百年的传统弹拨乐器。虽仅有两根羊肠弦（现代多用尼龙弦）与一个扁平梨形松木音箱，却拥有惊人的艺术表现力。琴手以独特的弹拨指法拂过琴弦，既能弹奏出微风拂过雪岭云杉的沙沙私语，又能描摹万马奔腾于天山草原的磅礴雷霆。在哈萨克民间，素有“没有歌声的地方就像没有草的荒原”之说。',
+        '“阿肯阿依特斯”是草原诗人（阿肯）之间举行的即兴弹唱辩论对歌会。两位阿肯席地而坐，各执一把冬不拉，就历史传说、生活哲理或社会百态展开敏捷的诗韵对决。词句不拘一格，妙语连珠，兼具文学与思辨之美，已被列入联合国教科文组织人类非物质文化遗产代表作名录。'
+      ],
+      descEn: [
+        'The Dombra is the most iconic traditional two-stringed plucked lute of the Kazakh people. Despite its minimalist two strings, skilled masters can mimic the gentle mountain breeze rustling through spruce needles, as well as the thunderous charge of thousands of galloping steeds across alpine pastures.',
+        'Aken Aytys is a traditional poetic and musical duel between bard-poets (Akens). Armed with spontaneous wit and musical mastery, two bards improvise rhymed verses on philosophy, nature, and community life, acknowledged as UNESCO Representative List of Intangible Cultural Heritage.'
+      ],
+      factLabelZh: '✦ 库尔德宁寻音指南',
+      factLabelEn: '✦ Listening & Experience Guide',
+      factContentZh: '每年夏秋阿肯弹唱会常在齐梦德高山草甸举行；在景区的哈萨克毡房营地，游客可亲手抚弦体验两弦音阶，感受冬不拉与天山松风的共鸣。',
+      factContentEn: 'During summer, traditional Aken gatherings take place on Qimengde meadows; visitors can also experience playing the two-string instrument inside local yurt camps.'
+    },
+    yurt: {
+      id: 'yurt',
+      badgeZh: '游牧生态建筑典范 · 舌尖风味',
+      badgeEn: 'Nomadic Architecture · Authentic Feast',
+      titleZh: '白毡房、咸奶茶与手抓肉',
+      titleEn: 'White Yurts & Nomadic Feasts',
+      subZh: '会呼吸的草原居所 · 最温润的待客之礼',
+      subEn: 'Breathing Pasture Dwellings · Warm Heartfelt Hospitality',
+      img: 'assets/culture_yurt.jpg',
+      descZh: [
+        '哈萨克毡房（哈萨克语称“宇 / Kiyiz Uy”）是适应高山游牧环境的生态奇迹。以红柳和桦木为网状架，外覆密实厚重的纯羊毛擀毡，冬暖夏凉、透气抗风。整座毡房仅需牛皮绳绑扎，无需一枚铁钉，两小时内即可拆卸折叠并由牛马驮运迁移，完美体现“人与自然和合共生”的生态伦理。',
+        '推开毡房雕花木门，铜壶里熬煮的咸奶茶香气扑鼻。哈萨克人以茯砖茶砖切碎煮沸，倒入新鲜牛奶并加入少许青盐，暖胃驱寒、消解油腻。正餐更是极尽热情：大盘高山散养羊肉（纳仁）、手抓肉堆叠如山，配以金黄酥脆的包尔萨克油馃子，让每一位远道而来的旅人感受如归故里的温热。'
+      ],
+      descEn: [
+        'The Kazakh felt yurt (Kiyiz Uy) is a marvel of nomadic ecological architecture. Made of willow framework wrapped in thick sheep wool felt, it breathes naturally, resisting mountain storms while staying cool in summer and cozy in winter. It can be assembled or dismantled within two hours without a single nail.',
+        'Inside the yurt, salted milk tea simmered with brick tea leaves and fresh cow/horse milk is served immediately to warm tired travelers. Accompanied by golden baursak pastries and tender boiled mutton (Naryn), it reflects the timeless generosity of pastoral nomads.'
+      ],
+      factLabelZh: '✦ 毡房待客礼仪守则',
+      factLabelEn: '✦ Yurt Etiquette Guidelines',
+      factContentZh: '入房切忌踩踏门槛；就座时双腿盘坐或顺势侧屈；主人捧上热奶茶时需双手相接，饮毕若不再添加可将茶碗横扣或以手掌轻覆其上。',
+      factContentEn: 'Never step on the wooden door threshold when entering; accept tea bowls with both hands as a sign of respect and gratitude.'
+    },
+    migration: {
+      id: 'migration',
+      badgeZh: '千载人类游牧活化石 · 史诗画卷',
+      badgeEn: 'Living Heritage of Transhumance',
+      titleZh: '喀班巴依英雄传说与壮丽转场',
+      titleEn: 'Hero Legend & Great Migration',
+      subZh: '天山横谷英雄浩气 · 生态生命史诗漫道',
+      subEn: 'Heroic Tien Shan Spirit · Epic Pastoral Migration',
+      img: 'assets/culture_migration.jpg',
+      descZh: [
+        '库尔德宁的巍峨主峰“喀班巴依峰”（海拔4257米），以18世纪哈萨克汗国民族英雄喀班巴依巴图鲁命名。相传英雄曾率铁骑在此抗击侵略、守护山川，其英勇与坚毅被化作耸立云霄的雪峰，成为世代牧民心中崇敬的守护神。',
+        '与英雄史诗交相辉映的，是延续千年的高山转场（Transhumance）。每年春秋时节，伴随草场荣枯与季节更迭，浩浩荡荡的马群、牛羊沿库尔德宁南北狭谷纵深迁徙。牧民策马扬鞭，驼峰满载家当，千军万马踩踏起金色烟尘，蹄声如雷轰鸣于云杉林海之间，被誉为欧亚大陆最震撼的生命生态史诗。'
+      ],
+      descEn: [
+        'Mount Kabanbayi (4,257m), the highest peak in Kurdening, is named after the revered 18th-century Kazakh national hero Kabanbay Batyr, who defended this strategic valley. The snow-capped summit stands as an eternal monument to valor and resilience.',
+        'In harmony with the legend is the epic seasonal transhumance. Each spring and autumn, massive herds of horses, sheep, and cattle migrate across the steep Kurdening corridors following ancient ecological cycles, kicking up golden dust clouds against evergreen spruce ridges.'
+      ],
+      factLabelZh: '✦ 壮丽转场摄影机位',
+      factLabelEn: '✦ Migration Photography Spots',
+      factContentZh: '最佳观赏与拍摄期为每年9月中下旬（秋季转场）及5月下旬（春季转场），十里画廊入口与齐梦德盘山弯道处可捕捉晨曦逆光下的金尘马队。',
+      factContentEn: 'Best viewing windows occur in late September (autumn) and late May (spring), especially along the Ten-Li Spruce Gallery viewpoints under golden morning light.'
+    },
+    kokpar: {
+      id: 'kokpar',
+      badgeZh: '力量与勇气的马背狂欢 · 浪漫节庆',
+      badgeEn: 'Equestrian Power & Passion',
+      titleZh: '赛马叼羊与黑走马舞',
+      titleEn: 'Horse Racing, Kokpar & Kara Zhorga',
+      subZh: '速度勇毅的马背对决 · 篝火映照下的耸肩律动',
+      subEn: 'Galloping Athleticism · Rhythmic Bonfire Celebration',
+      img: 'assets/culture_kokpar.jpg',
+      descZh: [
+        '“马是哈萨克人的翅膀”。叼羊（Kokpar）是草原上最热血澎湃的马术竞技。几十名骠悍骑手在马背上疾驰冲撞，俯身贴鞍从地面抓起羊只，在群马围堵中凭借高超骑术和爆发力突围奔袭，既是个人勇武的试炼，更是团队配合的较量。此外，充满浪漫谐趣的“姑娘追”，小伙策马在前，姑娘扬鞭在后，欢声笑语洒满百花草甸。',
+        '当夕阳落入喀班巴依雪峰背后，篝火升腾，属于夜晚的“黑走马（卡拉角勒哈）”随即登场。这是哈萨克族最富盛名的传统舞蹈，舞步生动模拟黑骏马轻快敏捷走步、昂首摆鬃与耸肩踏足的雄姿。老少围炉而舞，刚柔并济，热情洋溢，展示出游牧民族乐观洒脱的生命态度。'
+      ],
+      descEn: [
+        'Horses are said to be the wings of the Kazakh people. Kokpar (goat-grabbing polo) is an adrenaline-fueled traditional sport where fearless riders jostle at top speed, snatching the prize from the ground while breaking through defensive packs.',
+        'As night settles and bonfires blaze, the infectious rhythms of the Kara Zhorga (Black Ambler) dance take over. Dancers dynamically imitate the nimble steps, shoulder shakes, and proud postures of a spirited black steed, bringing all spectators into joyous celebration.'
+      ],
+      factLabelZh: '✦ 民俗节庆体验建议',
+      factLabelEn: '✦ Festival & Activity Tips',
+      factContentZh: '景区每年夏秋民俗文化节期间均会举行专业马术叼羊与姑娘追展演；晚间在野奢营地篝火旁，所有游客皆可加入欢快的黑走马群舞！',
+      factContentEn: 'During scenic seasonal festivals, live equestrian exhibitions take place daily; all visitors are warmly welcomed to join the evening Kara Zhorga bonfire circle!'
+    }
+  };
+
+  function openCultureModal(cultureId) {
+    const data = cultureDetailsData[cultureId];
+    if (!data || !dom.cultureModalMask) return;
+
+    state.activeCultureId = cultureId;
+    const isZh = state.currentLang === 'zh';
+
+    if (dom.cultureModalImg) dom.cultureModalImg.src = data.img;
+    if (dom.cultureModalBadge) dom.cultureModalBadge.textContent = isZh ? data.badgeZh : data.badgeEn;
+    if (dom.cultureModalTitle) dom.cultureModalTitle.textContent = isZh ? data.titleZh : data.titleEn;
+    if (dom.cultureModalSubtitle) dom.cultureModalSubtitle.textContent = isZh ? data.subZh : data.subEn;
+
+    if (dom.cultureModalDesc) {
+      const paragraphs = isZh ? data.descZh : data.descEn;
+      dom.cultureModalDesc.innerHTML = paragraphs.map(p => `<p>${escapeHTML(p)}</p>`).join('');
+    }
+
+    if (dom.cultureModalFactLabel) {
+      dom.cultureModalFactLabel.textContent = isZh ? data.factLabelZh : data.factLabelEn;
+    }
+    if (dom.cultureModalFactContent) {
+      dom.cultureModalFactContent.textContent = isZh ? data.factContentZh : data.factContentEn;
+    }
+
+    dom.cultureModalMask.classList.add('show');
+  }
+
+  function closeCultureModal() {
+    if (!dom.cultureModalMask) return;
+    dom.cultureModalMask.classList.remove('show');
+    state.activeCultureId = null;
+  }
+
+  if (dom.cultureCards && dom.cultureCards.length > 0) {
+    dom.cultureCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const cultureId = card.getAttribute('data-culture-id');
+        if (cultureId) {
+          openCultureModal(cultureId);
+        }
+      });
+    });
+  }
+
+  if (dom.closeCultureModalBtn) {
+    dom.closeCultureModalBtn.addEventListener('click', closeCultureModal);
+  }
+
+  if (dom.cultureModalMask) {
+    dom.cultureModalMask.addEventListener('click', (e) => {
+      if (e.target === dom.cultureModalMask) {
+        closeCultureModal();
+      }
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && dom.cultureModalMask && dom.cultureModalMask.classList.contains('show')) {
+      closeCultureModal();
+    }
+  });
+
   // ================= Page 6: Guide Accordion =================
   dom.accordionHeaders.forEach((header) => {
     header.addEventListener('click', () => {
@@ -996,37 +1165,100 @@
     });
   });
 
-  // ================= Page 8: Guestbook & Wish Wall =================
-  const STORAGE_KEY = 'kurdening_guestbook_comments';
+  // ================= Page 8: Local Storage Blessing Cards =================
+  const STORAGE_KEY = 'kurdening_blessing_cards';
 
-  function loadComments() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return;
+  function getStoredCards() {
     try {
-      const list = JSON.parse(saved);
-      if (Array.isArray(list) && list.length > 0) {
-        list.reverse().forEach((item) => {
-          prependCommentDOM(item.author, item.content, item.time);
-        });
-      }
-    } catch (e) {}
+      const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('kurdening_guestbook_comments');
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      return parsed.map((item, idx) => ({
+        id: item.id || `card_${Date.now()}_${idx}`,
+        author: item.author || (state.currentLang === 'zh' ? '热心游客' : 'Traveler'),
+        content: item.content || '',
+        time: item.time || (state.currentLang === 'zh' ? '刚刚' : 'Just now'),
+        isLocal: true
+      }));
+    } catch (e) {
+      return [];
+    }
   }
 
-  function prependCommentDOM(author, content, time) {
-    const bubble = document.createElement('div');
-    bubble.className = 'comment-bubble animate-in';
-    bubble.innerHTML = `
-      <div class="cb-header">
-        <span class="cb-user">🌲 ${escapeHTML(author)}</span>
-        <span class="cb-time">${escapeHTML(time)}</span>
-      </div>
-      <div class="cb-text">${escapeHTML(content)}</div>
-    `;
-    dom.commentStream.insertBefore(bubble, dom.commentStream.firstChild);
+  function saveStoredCards(cards) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+    } catch (err) {
+      console.warn('LocalStorage save failed:', err);
+    }
+  }
+
+  function syncPostcardPreview(cards) {
+    if (!dom.postcardBodyText || !dom.postcardFromText) return;
+    if (cards && cards.length > 0) {
+      const latest = cards[0];
+      dom.postcardBodyText.textContent = `“${latest.content}”`;
+      dom.postcardFromText.textContent = state.currentLang === 'zh' 
+        ? `来自：${latest.author}（本地定制祝福卡）` 
+        : `From: ${latest.author} (Local Blessing Card)`;
+    } else {
+      dom.postcardBodyText.textContent = state.currentLang === 'zh'
+        ? '“我在雪岭云杉的故乡，喀班巴依雪山之下，愿与你分享这片被大自然眷顾的天山横谷秘境。”'
+        : '"In the sanctuary of Schrenk spruce under Mt. Kabanbayi, wishing to share this nature wonder with you."';
+      dom.postcardFromText.textContent = state.currentLang === 'zh'
+        ? '来自：巩留库尔德宁国家级自然保护区'
+        : 'From: Gongliu Kurdening Nature Reserve';
+    }
+  }
+
+  function removeUserCard(cardId) {
+    let cards = getStoredCards();
+    cards = cards.filter(c => c.id !== cardId);
+    saveStoredCards(cards);
+    renderCardsList();
+    syncPostcardPreview(cards);
+    showToast(state.currentLang === 'zh' ? '🗑️ 已从本地移除该祝福卡' : '🗑️ Card removed from local storage');
+  }
+
+  function renderCardsList() {
+    if (!dom.commentStream) return;
+    // Remove existing user custom cards from DOM
+    dom.commentStream.querySelectorAll('.comment-bubble.user-local-card').forEach(el => el.remove());
+
+    const cards = getStoredCards();
+    // Insert user cards at top in reverse so first item is topmost
+    cards.slice().reverse().forEach(card => {
+      const bubble = document.createElement('div');
+      bubble.className = 'comment-bubble user-local-card animate-in';
+      bubble.setAttribute('data-card-id', card.id);
+      bubble.innerHTML = `
+        <div class="cb-header">
+          <div class="cb-user-group">
+            <span class="cb-user">💌 ${escapeHTML(card.author)}</span>
+            <span class="cb-badge-local">${state.currentLang === 'zh' ? '我的本地祝福卡' : 'Local Card'}</span>
+          </div>
+          <div class="cb-action-group">
+            <span class="cb-time">${escapeHTML(card.time)}</span>
+            <button class="cb-del-btn" title="${state.currentLang === 'zh' ? '删除此卡' : 'Delete'}">✕</button>
+          </div>
+        </div>
+        <div class="cb-text">${escapeHTML(card.content)}</div>
+      `;
+
+      bubble.querySelector('.cb-del-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        removeUserCard(card.id);
+      });
+
+      dom.commentStream.insertBefore(bubble, dom.commentStream.firstChild);
+    });
+
+    syncPostcardPreview(cards);
   }
 
   function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
+    return String(str || '').replace(/[&<>'"]/g, 
       tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
     );
   }
@@ -1038,22 +1270,31 @@
       const content = dom.commentContent.value.trim();
       if (!author || !content) return;
 
-      const time = state.currentLang === 'zh' ? '刚刚' : 'Just now';
-      prependCommentDOM(author, content, time);
+      const now = new Date();
+      const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
-      // Save to localStorage
-      try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        saved.push({ author, content, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) });
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-      } catch (err) {}
+      const newCard = {
+        id: 'card_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+        author: author,
+        content: content,
+        time: timeStr,
+        isLocal: true
+      };
+
+      const cards = getStoredCards();
+      cards.unshift(newCard);
+      saveStoredCards(cards);
+
+      renderCardsList();
 
       dom.commentAuthor.value = '';
       dom.commentContent.value = '';
-      showToast(state.currentLang === 'zh' ? '✨ 感谢您的天山寄语打卡！' : '✨ Thanks for leaving your travel wish!');
+
+      showToast(state.currentLang === 'zh' ? '✨ 祝福卡已成功保存至本地！' : '✨ Blessing card saved to local storage!');
     });
   }
-  loadComments();
+
+  renderCardsList();
 
   // ================= Page 8: Postcard Canvas Generator =================
   function generatePostcard() {
@@ -1130,12 +1371,24 @@
       ctx.font = '13px sans-serif';
       ctx.fillText('KURDENING · TIEN SHAN NATURE SANCTUARY', 70, 550);
 
+      // Check user local blessing card
+      const cards = getStoredCards();
+      const latestCard = cards.length > 0 ? cards[0] : null;
+
       ctx.fillStyle = '#263b31';
       ctx.font = 'italic 16px serif';
-      const quote = '“在欧亚大陆最辽阔的雪岭云杉林海中漫步，';
-      const quote2 = ' 聆听喀班巴依雪峰与库尔德宁河的长歌。”';
-      ctx.fillText(quote, 70, 605);
-      ctx.fillText(quote2, 70, 635);
+
+      if (latestCard) {
+        ctx.fillText('“' + latestCard.content.slice(0, 24), 70, 605);
+        if (latestCard.content.length > 24) {
+          ctx.fillText(' ' + latestCard.content.slice(24, 52), 70, 635);
+        }
+      } else {
+        const quote = '“在欧亚大陆最辽阔的雪岭云杉林海中漫步，';
+        const quote2 = ' 聆听喀班巴依雪峰与库尔德宁河的长歌。”';
+        ctx.fillText(quote, 70, 605);
+        ctx.fillText(quote2, 70, 635);
+      }
 
       // Divider line
       ctx.strokeStyle = 'rgba(19, 62, 43, 0.15)';
@@ -1145,11 +1398,12 @@
       ctx.lineTo(570, 675);
       ctx.stroke();
 
-      // Bottom Signature
+      // Bottom Signature (已删除原有的景区管委会版权所有)
       ctx.fillStyle = '#7a8c82';
       ctx.font = '13px sans-serif';
-      ctx.fillText('邀请人：天山绿谷·库尔德宁景区管委会', 70, 715);
-      ctx.fillText('官方认证：世界自然遗产 · 国家级雪岭云杉自然保护区', 70, 738);
+      const senderText = latestCard ? `寄语祝福：${latestCard.author}` : '寄语祝福：天山旅行者';
+      ctx.fillText(senderText, 70, 715);
+      ctx.fillText('地点认证：世界自然遗产 · 中国新疆天山库尔德宁', 70, 738);
 
       // Render into dialog
       dom.canvasRenderContainer.innerHTML = '';
@@ -1220,6 +1474,10 @@
     // Refresh dynamic components with new language
     renderSpot(state.currentSpotIdx);
     renderSeason(state.currentSeason);
+    renderCardsList();
+    if (state.activeCultureId) {
+      openCultureModal(state.activeCultureId);
+    }
 
     showToast(state.currentLang === 'zh' ? '🇨🇳 已切换为中文' : '🌐 Switched to English');
   }
@@ -1229,13 +1487,47 @@
   // Initial load spot
   renderSpot(0);
 
-  // Ensure cover video autoplays or activates on first touch
-  const playCoverVideo = () => {
-    if (dom.heroBgVideo && dom.heroBgVideo.paused) {
-      dom.heroBgVideo.play().catch(() => {});
-    }
+  // Ensure cover video autoplays seamlessly across all mobile/desktop browsers (WeChat, Safari, Chrome)
+  const initCoverVideo = () => {
+    if (!dom.heroBgVideo) return;
+    
+    // Explicitly set properties on the video element for strict mobile browser autoplay policies
+    dom.heroBgVideo.muted = true;
+    dom.heroBgVideo.defaultMuted = true;
+    dom.heroBgVideo.playsInline = true;
+    dom.heroBgVideo.setAttribute('muted', '');
+    dom.heroBgVideo.setAttribute('playsinline', '');
+    dom.heroBgVideo.setAttribute('webkit-playsinline', 'true');
+    dom.heroBgVideo.setAttribute('x5-playsinline', 'true');
+
+    const tryPlay = () => {
+      if (dom.heroBgVideo && dom.heroBgVideo.paused) {
+        const promise = dom.heroBgVideo.play();
+        if (promise !== undefined) {
+          promise.catch(() => {
+            // If browser blocks initial unmuted/unprompted autoplay, it will trigger on first interaction
+          });
+        }
+      }
+    };
+
+    // Attempt autoplay immediately
+    tryPlay();
+
+    // Also attempt when metadata and enough data are loaded
+    dom.heroBgVideo.addEventListener('loadedmetadata', tryPlay);
+    dom.heroBgVideo.addEventListener('canplay', tryPlay);
+
+    // Support WeChat in-app browser autoplay hook
+    document.addEventListener('WeixinJSBridgeReady', tryPlay, false);
+
+    // Fallback: unlock playback on first touch/interaction anywhere on screen
+    const userEvents = ['touchstart', 'touchend', 'click', 'scroll', 'pointerdown'];
+    userEvents.forEach((evtName) => {
+      window.addEventListener(evtName, tryPlay, { once: true, passive: true });
+    });
   };
-  window.addEventListener('click', playCoverVideo, { once: true });
-  window.addEventListener('touchstart', playCoverVideo, { once: true });
+
+  initCoverVideo();
 
 })();
